@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QCFI Bengaluru - Futuristic Design</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-glow: #00f3ff;
+            --secondary-glow: #ff00ff;
+            --accent-glow: #00ff88;
+            --bg-dark: #0a0a1a;
+            --bg-card: rgba(16, 18, 37, 0.8);
+            --text-primary: #ffffff;
+            --text-secondary: #b4b4ff;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 243, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(0, 255, 136, 0.05) 0%, transparent 50%);
+            animation: bgPulse 8s ease-in-out infinite;
+        }
+
+        @keyframes bgPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--primary-glow);
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Fixed Navigation with Hanging Effect */
+        header {
+            position: fixed;
+            top: -80px;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 26, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0, 243, 255, 0.3);
+            transition: top 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        header.visible {
+            top: 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 1001;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: 45px;
+            margin-right: 15px;
+            filter: drop-shadow(0 0 10px var(--primary-glow));
+            animation: logoGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes logoGlow {
+            0% { filter: drop-shadow(0 0 10px var(--primary-glow)); }
+            100% { filter: drop-shadow(0 0 20px var(--secondary-glow)); }
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 243, 255, 0.5);
+            white-space: nowrap;
+        }
+
+        /* Improved Navigation Menu */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            position: relative;
+            z-index: 1001;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            margin: 0 -10px;
+        }
+
+        .nav-menu li {
+            margin: 0 8px;
+            position: relative;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 500;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 8px 12px;
+            border: 1px solid transparent;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-menu a:hover::before {
+            left: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: var(--text-primary);
+            border-color: var(--primary-glow);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+            text-shadow: 0 0 8px var(--primary-glow);
+            transform: translateY(-2px);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--bg-card);
+            backdrop-filter: blur(15px);
+            min-width: 220px;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            border-radius: 12px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px) scale(0.95);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 1002;
+            margin-top: 10px;
+        }
+
+        .dropdown::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid var(--bg-card);
+        }
+
+        .dropdown li {
+            margin: 0;
+            width: 100%;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 0;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+            font-size: 12px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        .nav-menu li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px) scale(1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: 1px solid var(--primary-glow);
+            color: var(--primary-glow);
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* Top Trigger Area for Hanging Effect */
+        .nav-trigger-area {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            z-index: 999;
+            background: transparent;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 0;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background: linear-gradient(rgba(10, 10, 26, 0.7), rgba(10, 10, 26, 0.9)), 
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideUp 1s ease-out 0.5s forwards;
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow), var(--accent-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 243, 255, 0.5);
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 20px rgba(0, 243, 255, 0.5); }
+            100% { text-shadow: 0 0 30px rgba(255, 0, 255, 0.5); }
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .btn-futuristic {
+            display: inline-block;
+            padding: 14px 35px;
+            background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow));
+            color: var(--bg-dark);
+            text-decoration: none;
+            border-radius: 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+            font-size: 14px;
+        }
+
+        .btn-futuristic:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.8);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 100px 0;
+            background: rgba(16, 18, 37, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--bg-card);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .stat-item:hover::before {
+            left: 100%;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-glow);
+            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.2);
+        }
+
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-glow), var(--accent-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .stat-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 150px 0;
+            position: relative;
+        }
+
+        .features-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        .section-header.visible {
+            animation: slideUp 1s ease-out forwards;
+        }
+
+        .section-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px 30px;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        .feature-card.visible {
+            animation: slideUp 0.8s ease-out forwards;
+        }
+
+        .feature-card:nth-child(2) { animation-delay: 0.2s; }
+        .feature-card:nth-child(3) { animation-delay: 0.4s; }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-glow);
+            box-shadow: 0 15px 40px rgba(0, 243, 255, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, var(--primary-glow), var(--accent-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Events Section */
+        .events {
+            padding: 150px 0;
+            background: rgba(16, 18, 37, 0.7);
+        }
+
+        .events-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .event-card {
+            background: var(--bg-card);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            transition: all 0.3s ease;
+            transform: translateX(-100px);
+            opacity: 0;
+        }
+
+        .event-card.visible {
+            animation: slideInRight 1s ease-out forwards;
+        }
+
+        .event-card:nth-child(even) {
+            transform: translateX(100px);
+        }
+
+        .event-card:nth-child(even).visible {
+            animation: slideInLeft 1s ease-out forwards;
+        }
+
+        @keyframes slideInRight {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-glow);
+            box-shadow: 0 15px 40px rgba(0, 243, 255, 0.3);
+        }
+
+        .event-image {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .event-card:hover .event-image img {
+            transform: scale(1.1);
+        }
+
+        .event-date {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid var(--primary-glow);
+        }
+
+        .event-day {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-glow);
+        }
+
+        .event-month {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .event-content {
+            padding: 30px;
+        }
+
+        .event-content h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .event-meta {
+            display: flex;
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .event-meta span {
+            margin-right: 20px;
+        }
+
+        .event-meta i {
+            margin-right: 5px;
+            color: var(--primary-glow);
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 150px 0;
+            background: linear-gradient(rgba(10, 10, 26, 0.9), rgba(10, 10, 26, 0.9)), 
+                        url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cta p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to bottom, var(--bg-dark), #000);
+            padding: 80px 0 30px;
+            border-top: 1px solid rgba(0, 243, 255, 0.2);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: var(--primary-glow);
+            position: relative;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(45deg, var(--primary-glow), var(--accent-glow));
+        }
+
+        .footer-col p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-glow);
+            text-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-card);
+            color: var(--primary-glow);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-glow);
+            color: var(--bg-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 243, 255, 0.5);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 243, 255, 0.2);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .copyright a {
+            color: var(--primary-glow);
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .nav-menu a {
+                font-size: 12px;
+                padding: 8px 10px;
+            }
+            
+            .logo-text {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .stats-container,
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                padding: 12px 0;
+            }
+            
+            .logo img {
+                height: 35px;
+            }
+            
+            .logo-text {
+                font-size: 18px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .stats-container,
+            .features-grid,
+            .events-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 16px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn-futuristic {
+                padding: 12px 25px;
+                font-size: 12px;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Trigger Area for Hanging Nav -->
+    <div class="nav-trigger-area" id="navTrigger"></div>
+
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Header with Hanging Navigation -->
+    <header id="mainHeader">
+        <div class="nav-container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <img src="https://www.qcfitraining.com/images/logo.png" alt="QCFI Logo">
+                    <div class="logo-text">QCFI BENGALURU</div>
+                </div>
+                
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-menu">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li>
+                        <a href="#">About Us <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="#">Vision & Mission</a></li>
+                            <li><a href="#">History</a></li>
+                            <li><a href="#">Contact & Location</a></li>
+                            <li><a href="#">Board of Directors</a></li>
+                            <li><a href="#">Founder Director</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Chapters</a></li>
+                    <li><a href="#">Upcoming Events</a></li>
+                    <li>
+                        <a href="#">Conventions <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="#">CCQC 2025</a></li>
+                            <li><a href="#">ICQCC</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Articles</a></li>
+                    <li><a href="#">Concepts</a></li>
+                    <li>
+                        <a href="#">Membership <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="#">Online Membership</a></li>
+                            <li><a href="#">Download Membership Form</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>QUALITY CIRCLE FORUM OF INDIA</h1>
+            <p>Bengaluru Chapter - Pioneering Quality Excellence Through Innovation, Technology & Collaborative Growth in the Digital Era</p>
+            <a href="#" class="btn-futuristic">JOIN THE MOVEMENT</a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number" data-count="500">0</div>
+                <div class="stat-text">Active Members</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-count="100">0</div>
+                <div class="stat-text">Partner Organizations</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-count="40">0</div>
+                <div class="stat-text">Years of Excellence</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-count="50">0</div>
+                <div class="stat-text">Annual Events</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-bg"></div>
+        <div class="section-header" id="featuresHeader">
+            <h2>OUR CORE INITIATIVES</h2>
+            <p>Driving quality excellence through cutting-edge programs and futuristic approaches</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card" id="feature1">
+                <div class="feature-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>AI-Powered Quality Systems</h3>
+                <p>Implementing artificial intelligence and machine learning to revolutionize quality control processes and predictive maintenance across manufacturing industries.</p>
+            </div>
+            
+            <div class="feature-card" id="feature2">
+                <div class="feature-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <h3>Digital Collaboration Hub</h3>
+                <p>Advanced digital platform connecting quality professionals across industries for real-time collaboration, knowledge sharing, and innovation.</p>
+            </div>
+            
+            <div class="feature-card" id="feature3">
+                <div class="feature-icon">
+                    <i class="fas fa-vr-cardboard"></i>
+                </div>
+                <h3>Virtual Reality Training</h3>
+                <p>Immersive VR experiences for quality circle training, simulation-based learning, virtual factory tours, and interactive workshops.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events">
+        <div class="section-header" id="eventsHeader">
+            <h2>UPCOMING EVENTS</h2>
+            <p>Experience the future of quality management at our cutting-edge events</p>
+        </div>
+        
+        <div class="events-grid">
+            <div class="event-card" id="event1">
+                <div class="event-image">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="CCQC 2025">
+                    <div class="event-date">
+                        <div class="event-day">15</div>
+                        <div class="event-month">March</div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <h3>CCQC 2025 Convention</h3>
+                    <div class="event-meta">
+                        <span><i class="far fa-clock"></i> 9:00 AM - 5:00 PM</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Bangalore International Center</span>
+                    </div>
+                    <p>Future-forward convention featuring AI in quality control, blockchain for supply chain transparency, and IoT integration in manufacturing processes with industry leaders.</p>
+                    <a href="#" class="btn-futuristic" style="margin-top: 20px; display: inline-block;">Register Now</a>
+                </div>
+            </div>
+            
+            <div class="event-card" id="event2">
+                <div class="event-image">
+                    <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Quality Leadership">
+                    <div class="event-date">
+                        <div class="event-day">22</div>
+                        <div class="event-month">April</div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <h3>Quantum Quality Leadership</h3>
+                    <div class="event-meta">
+                        <span><i class="far fa-clock"></i> 10:00 AM - 4:00 PM</span>
+                        <span><i class="fas fa-map-marker-alt"></i> QCFI Innovation Hub</span>
+                    </div>
+                    <p>Advanced workshop exploring quantum computing applications in quality management, data analytics, and next-generation leadership strategies for quality excellence.</p>
+                    <a href="#" class="btn-futuristic" style="margin-top: 20px; display: inline-block;">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>JOIN THE QUALITY REVOLUTION</h2>
+            <p>Become a member of QCFI Bengaluru Chapter and be part of the growing community dedicated to quality excellence, innovation, and continuous improvement in the digital age.</p>
+            <a href="#" class="btn-futuristic">BECOME A MEMBER</a>
+        </div>
+    </section>
+    <!-- Design Switcher -->
+<div class="fixed bottom-4 right-4 z-50">
+    <div class="bg-white/10 backdrop-blur-lg rounded-full p-2 border border-white/20">
+        <div class="flex space-x-2">
+            <a href="index.html" 
+               class="px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-semibold transition-all duration-300 hover:bg-blue-700">
+               Design 1
+            </a>
+            <a href="design-modern.html" 
+               class="px-4 py-2 bg-purple-600 text-white rounded-full text-sm font-semibold transition-all duration-300 hover:bg-purple-700">
+               Design 2
+            </a>
+            <a href="design-premium.html" 
+               class="px-4 py-2 bg-green-600 text-white rounded-full text-sm font-semibold transition-all duration-300 hover:bg-green-700">
+               Design 3
+            </a>
+        </div>
+    </div>
+</div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>QCFI BENGALURU</h3>
+                <p>Pioneering the future of quality excellence through innovation, technology, and collaborative growth in the digital era. Join us in shaping the future of quality management.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Chapters</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Conventions</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Membership</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Online Membership</a></li>
+                    <li><a href="#">Membership Form</a></li>
+                    <li><a href="#">Benefits</a></li>
+                    <li><a href="#">Renew Membership</a></li>
+                    <li><a href="#">Contact Membership</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> Bengaluru, Karnataka</li>
+                    <li><i class="fas fa-phone"></i> +91 80 1234 5678</li>
+                    <li><i class="fas fa-envelope"></i> info@qcfibengaluru.org</li>
+                    <li><i class="fas fa-clock"></i> Mon - Fri: 9:00 - 17:00</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 QCFI Bengaluru Chapter. All Rights Reserved. | Website Developed by <a href="https://www.folkdrive.in">Folkdrive India Private Limited</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const size = Math.random() * 4 + 1;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = Math.random() * 10 + 5;
+                const color = Math.random() > 0.5 ? 'var(--primary-glow)' : 'var(--secondary-glow)';
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.background = color;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Hanging navigation effect
+        function initHangingNav() {
+            const header = document.getElementById('mainHeader');
+            const triggerArea = document.getElementById('navTrigger');
+            let isNavVisible = false;
+            let lastScrollY = window.scrollY;
+
+            triggerArea.addEventListener('mouseenter', () => {
+                if (!isNavVisible) {
+                    header.classList.add('visible');
+                    isNavVisible = true;
+                }
+            });
+
+            header.addEventListener('mouseleave', (e) => {
+                if (!triggerArea.matches(':hover') && window.scrollY > 100) {
+                    header.classList.remove('visible');
+                    isNavVisible = false;
+                }
+            });
+
+            header.addEventListener('mouseenter', () => {
+                isNavVisible = true;
+            });
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > lastScrollY && window.scrollY > 100) {
+                    header.classList.remove('visible');
+                    isNavVisible = false;
+                } else if (window.scrollY < lastScrollY && window.scrollY > 100) {
+                    header.classList.add('visible');
+                    isNavVisible = true;
+                }
+                lastScrollY = window.scrollY;
+            });
+
+            if (window.scrollY === 0) {
+                setTimeout(() => {
+                    header.classList.add('visible');
+                    isNavVisible = true;
+                }, 1000);
+            }
+        }
+
+        // Mobile menu functionality
+        function initMobileMenu() {
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            mobileBtn.addEventListener('click', () => {
+                const isVisible = navMenu.style.display === 'flex';
+                navMenu.style.display = isVisible ? 'none' : 'flex';
+                
+                if (!isVisible) {
+                    navMenu.style.flexDirection = 'column';
+                    navMenu.style.position = 'absolute';
+                    navMenu.style.top = '100%';
+                    navMenu.style.left = '0';
+                    navMenu.style.right = '0';
+                    navMenu.style.background = 'var(--bg-card)';
+                    navMenu.style.backdropFilter = 'blur(15px)';
+                    navMenu.style.border = '1px solid rgba(0, 243, 255, 0.3)';
+                    navMenu.style.borderRadius = '12px';
+                    navMenu.style.padding = '20px';
+                    navMenu.style.margin = '10px 20px 0';
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 1024) {
+                    navMenu.style.display = 'flex';
+                    navMenu.style.flexDirection = 'row';
+                    navMenu.style.position = 'relative';
+                    navMenu.style.background = 'transparent';
+                    navMenu.style.backdropFilter = 'none';
+                    navMenu.style.border = 'none';
+                    navMenu.style.padding = '0';
+                    navMenu.style.margin = '0 -10px';
+                } else {
+                    navMenu.style.display = 'none';
+                }
+            });
+        }
+
+        // Scroll animations
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            const elementsToAnimate = [
+                document.getElementById('featuresHeader'),
+                document.getElementById('eventsHeader'),
+                document.getElementById('feature1'),
+                document.getElementById('feature2'),
+                document.getElementById('feature3'),
+                document.getElementById('event1'),
+                document.getElementById('event2')
+            ];
+            
+            elementsToAnimate.forEach(element => {
+                if (element) observer.observe(element);
+            });
+        }
+
+        // Stats counter
+        function initStatsCounter() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        counters.forEach(counter => {
+                            const updateCount = () => {
+                                const target = +counter.getAttribute('data-count');
+                                const count = +counter.innerText;
+                                
+                                const inc = target / speed;
+                                
+                                if(count < target) {
+                                    counter.innerText = Math.ceil(count + inc);
+                                    setTimeout(updateCount, 1);
+                                } else {
+                                    counter.innerText = target;
+                                }
+                            }
+                            
+                            updateCount();
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const statsSection = document.querySelector('.stats');
+            if (statsSection) observer.observe(statsSection);
+        }
+
+        // Initialize everything when DOM loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            initHangingNav();
+            initMobileMenu();
+            initScrollAnimations();
+            initStatsCounter();
+        });
+    </script>
+</body>
+</html>
