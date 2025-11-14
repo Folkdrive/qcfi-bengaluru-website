@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QCFI Bengaluru - Excellence Through Quality Circles</title>
+    <title>QCFI Bengaluru Chapter - Quality Circle Forum of India</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -89,6 +89,63 @@
             animation: loading 2s ease-in-out forwards;
         }
 
+        /* Navigation Styles - IMPROVED */
+        .nav-container {
+            background: rgba(15, 23, 42, 0.95) !important;
+            backdrop-filter: blur(20px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .nav-link {
+            position: relative;
+            font-weight: 600;
+            padding: 0.75rem 1rem;
+            color: #cbd5e1;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 8px;
+            left: 1rem;
+            right: 1rem;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: calc(100% - 2rem);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu {
+            background: rgba(30, 41, 59, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Logo Container with White Background */
+        .logo-container {
+            background: white;
+            border-radius: 12px;
+            padding: 8px;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
         /* Floating Particles */
         .particles-container {
             position: fixed;
@@ -145,6 +202,7 @@
             border-radius: 20px;
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
         }
 
         .holographic-card::before {
@@ -160,6 +218,11 @@
 
         .holographic-card:hover::before {
             left: 100%;
+        }
+
+        .holographic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
         }
 
         /* 3D Flip Cards */
@@ -262,6 +325,13 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+        }
+
+        /* Stats Cards */
+        .stat-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(51, 65, 85, 0.6) 100%);
+            backdrop-filter: blur(10px);
+            border-left: 4px solid #3b82f6;
         }
 
         /* Keyframe Animations */
@@ -402,35 +472,87 @@
     <!-- Animated Background -->
     <div class="animated-bg"></div>
 
-    <!-- Navigation -->
-    <nav class="relative z-50 bg-black/20 backdrop-blur-lg border-b border-gray-800/50">
-        <div class="container mx-auto px-6 py-4">
+    <!-- Navigation - IMPROVED -->
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-container">
+        <div class="container mx-auto px-6 py-3">
             <div class="flex justify-between items-center">
+                <!-- Logo with White Background -->
                 <div class="flex items-center space-x-4">
-                    <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                        <img src="https://www.qcfitraining.com/images/logo.png" alt="QCFI" class="w-8 h-8 filter brightness-0 invert">
+                    <div class="logo-container">
+                        <img src="https://www.qcfitraining.com/images/logo.png" alt="QCFI Logo" class="h-10 w-auto">
                     </div>
+                    <div class="border-l border-gray-600 h-8"></div>
                     <div>
-                        <h1 class="heading-font text-xl text-white">QCFI BENGALURU</h1>
+                        <h1 class="heading-font text-xl text-white">QCFI Bengaluru</h1>
                         <p class="text-xs text-gray-400">Quality Circle Forum of India</p>
                     </div>
                 </div>
                 
-                <div class="hidden lg:flex items-center space-x-8">
-                    <a href="#" class="text-white hover:text-blue-400 transition-colors duration-300 font-semibold">Home</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">About</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Events</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Conventions</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Membership</a>
-                    <button class="magnetic-btn text-sm">Get Started</button>
+                <!-- Desktop Navigation - IMPROVED ALIGNMENT -->
+                <nav class="hidden lg:flex items-center space-x-1">
+                    <a href="index.html" class="nav-link active text-blue-400">Home</a>
+                    
+                    <!-- About Us Dropdown -->
+                    <div class="dropdown relative">
+                        <a href="about.html" class="nav-link flex items-center">
+                            About Us <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-56 rounded-lg py-3 hidden z-50">
+                            <a href="about/vision-mission.html" class="block px-6 py-3 text-gray-300 hover:bg-blue-500/20 hover:text-blue-400 transition duration-200">Vision & Mission</a>
+                            <a href="about/history.html" class="block px-6 py-3 text-gray-300 hover:bg-blue-500/20 hover:text-blue-400 transition duration-200">History</a>
+                            <a href="about/contact.html" class="block px-6 py-3 text-gray-300 hover:bg-blue-500/20 hover:text-blue-400 transition duration-200">Contact & Location</a>
+                            <a href="about/board.html" class="block px-6 py-3 text-gray-300 hover:bg-blue-500/20 hover:text-blue-400 transition duration-200">Board of Directors</a>
+                            <a href="about/founder.html" class="block px-6 py-3 text-gray-300 hover:bg-blue-500/20 hover:text-blue-400 transition duration-200">Founder Director</a>
+                        </div>
+                    </div>
+                    
+                    <a href="chapters.html" class="nav-link">Chapters</a>
+                    <a href="events.html" class="nav-link">Upcoming Events</a>
+                    
+                    <!-- Conventions Dropdown -->
+                    <div class="dropdown relative">
+                        <a href="conventions.html" class="nav-link flex items-center">
+                            Conventions <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-56 rounded-lg py-3 hidden z-50">
+                            <a href="conventions/ccqc2025.html" class="block px-6 py-3 text-gray-300 hover:bg-blue-500/20 hover:text-blue-400 transition duration-200">CCQC 2025</a>
+                            <a href="conventions/icqcc.html" class="block px-6 py-3 text-gray-300 hover:bg-blue-500/20 hover:text-blue-400 transition duration-200">ICQCC</a>
+                        </div>
+                    </div>
+                    
+                    <a href="articles.html" class="nav-link">Articles</a>
+                    <a href="concepts.html" class="nav-link">Concepts</a>
+                    
+                    <!-- Membership Dropdown -->
+                    <div class="dropdown relative">
+                        <a href="membership.html" class="nav-link flex items-center">
+                            Membership <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-64 rounded-lg py-3 hidden z-50">
+                            <a href="membership/online-membership.html" class="block px-6 py-3 text-gray-300 hover:bg-blue-500/20 hover:text-blue-400 transition duration-200">Online Membership</a>
+                            <a href="membership/download-membership.html" class="block px-6 py-3 text-gray-300 hover:bg-blue-500/20 hover:text-blue-400 transition duration-200">Download Membership Form</a>
+                        </div>
+                    </div>
+                </nav>
+                
+                <!-- Login/Member Registration - BETTER SPACING -->
+                <div class="flex items-center space-x-3">
+                    <a href="https://qcfi.in/qcfihq/" class="hidden md:inline-block magnetic-btn text-sm px-4 py-2">
+                        Login
+                    </a>
+                    <a href="https://qcfi.in/qcfihq/" class="hidden md:inline-block border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-lg font-semibold transition duration-300">
+                        Register
+                    </a>
+                    <button class="lg:hidden text-white text-xl p-2 hover:bg-white/10 rounded-lg">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </div>
-
-                <button class="lg:hidden text-white text-xl">
-                    <i class="fas fa-bars"></i>
-                </button>
             </div>
         </div>
     </nav>
+
+    <!-- Add padding to account for fixed navbar -->
+    <div class="pt-20"></div>
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden parallax" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
@@ -439,43 +561,51 @@
             <div class="mb-8">
                 <div class="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-white/20">
                     <div class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-                    <span class="text-sm font-semibold text-white">Trusted by 100+ Organizations</span>
+                    <span class="text-sm font-semibold text-white">Trusted by 100+ Organizations Since 1982</span>
                 </div>
 
                 <h1 class="heading-font text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-                    <span class="glitch-text text-white" data-text="QUALITY">QUALITY</span>
+                    <span class="glitch-text text-white" data-text="EXCELLENCE">EXCELLENCE</span>
                     <br>
-                    <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">CIRCLES</span>
+                    <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">THROUGH QUALITY</span>
                 </h1>
                 <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-                    Revolutionizing organizational excellence through innovative quality management and continuous improvement methodologies.
+                    Empowering organizations across Bengaluru with continuous improvement methodologies and employee-driven quality initiatives since 1982.
                 </p>
             </div>
             
             <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-                <button class="magnetic-btn px-8 py-4 text-lg">
-                    <i class="fas fa-rocket mr-2"></i>
-                    Start Your Journey
-                </button>
-                <button class="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 backdrop-blur-sm">
-                    <i class="fas fa-play-circle mr-2"></i>
-                    Watch Demo
-                </button>
+                <a href="membership.html" class="magnetic-btn px-8 py-4 text-lg">
+                    <i class="fas fa-user-plus mr-2"></i>
+                    Join Our Community
+                </a>
+                <a href="events.html" class="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 backdrop-blur-sm">
+                    <i class="fas fa-calendar-alt mr-2"></i>
+                    Explore Events
+                </a>
             </div>
 
             <!-- Animated Stats -->
-            <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
                 <div class="text-center fade-in">
                     <div class="text-3xl font-bold text-white mb-2 count-up" data-target="500">0</div>
-                    <div class="text-blue-300 text-sm">Quality Experts</div>
-                </div>
-                <div class="text-center fade-in">
-                    <div class="text-3xl font-bold text-white mb-2 count-up" data-target="40">0</div>
-                    <div class="text-purple-300 text-sm">Years Excellence</div>
+                    <div class="text-blue-300 text-sm font-semibold">Quality Professionals</div>
+                    <div class="text-gray-400 text-xs mt-1">Active Members</div>
                 </div>
                 <div class="text-center fade-in">
                     <div class="text-3xl font-bold text-white mb-2 count-up" data-target="100">0</div>
-                    <div class="text-green-300 text-sm">Partner Companies</div>
+                    <div class="text-purple-300 text-sm font-semibold">Leading Organizations</div>
+                    <div class="text-gray-400 text-xs mt-1">Partner Companies</div>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="text-3xl font-bold text-white mb-2 count-up" data-target="40">0</div>
+                    <div class="text-green-300 text-sm font-semibold">Years of Excellence</div>
+                    <div class="text-gray-400 text-xs mt-1">Since 1982</div>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="text-3xl font-bold text-white mb-2 count-up" data-target="50">0</div>
+                    <div class="text-yellow-300 text-sm font-semibold">Annual Events</div>
+                    <div class="text-gray-400 text-xs mt-1">Workshops & Seminars</div>
                 </div>
             </div>
         </div>
@@ -490,65 +620,151 @@
         </div>
     </section>
 
-    <!-- Features Section with 3D Cards -->
+    <!-- Quick Links Section -->
+    <section class="py-20 bg-gradient-to-br from-gray-900/50 to-blue-900/30 relative">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <a href="events.html" class="holographic-card p-6 text-center card-hover">
+                    <div class="text-blue-400 text-3xl mb-3">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Upcoming Events</h3>
+                    <p class="text-gray-400 text-sm">Workshops, seminars and training programs</p>
+                </a>
+                
+                <a href="conventions/ccqc2025.html" class="holographic-card p-6 text-center card-hover">
+                    <div class="text-purple-400 text-3xl mb-3">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">CCQC 2025</h3>
+                    <p class="text-gray-400 text-sm">International Convention on Quality Control Circles</p>
+                </a>
+                
+                <a href="membership/online-membership.html" class="holographic-card p-6 text-center card-hover">
+                    <div class="text-green-400 text-3xl mb-3">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Become a Member</h3>
+                    <p class="text-gray-400 text-sm">Join QCFI and access exclusive benefits</p>
+                </a>
+                
+                <a href="articles.html" class="holographic-card p-6 text-center card-hover">
+                    <div class="text-yellow-400 text-3xl mb-3">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Articles & Resources</h3>
+                    <p class="text-gray-400 text-sm">Latest insights on quality management</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
     <section class="py-20 relative">
         <div class="container mx-auto px-6">
-            <h2 class="heading-font text-4xl md:text-5xl text-center text-white mb-4 fade-in">Why Choose QCFI?</h2>
-            <p class="text-xl text-gray-400 text-center max-w-2xl mx-auto mb-16 fade-in">
-                Experience the future of quality management with our innovative approach
+            <h2 class="heading-font text-4xl md:text-5xl text-center text-white mb-4 fade-in">About QCFI Bengaluru</h2>
+            <p class="text-xl text-gray-400 text-center max-w-3xl mx-auto mb-16 fade-in">
+                Promoting Quality Circle activities and continuous improvement culture in organizations across Bengaluru region.
+            </p>
+
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 fade-in">
+                    <p class="text-gray-300 mb-6 text-lg">
+                        The Quality Circle Forum of India (QCFI) is a premier non-profit organization dedicated to promoting Quality Circle activities and other people-building movements across India.
+                    </p>
+                    <p class="text-gray-300 mb-6">
+                        The Bengaluru Chapter has been actively fostering a culture of continuous improvement and employee participation in organizations throughout the region since its inception.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mt-8">
+                        <div class="stat-card p-5 rounded-lg">
+                            <div class="text-blue-400 text-2xl font-bold mb-2">500+</div>
+                            <div class="text-gray-300 font-semibold">Active Members</div>
+                        </div>
+                        <div class="stat-card p-5 rounded-lg">
+                            <div class="text-purple-400 text-2xl font-bold mb-2">100+</div>
+                            <div class="text-gray-300 font-semibold">Organizations</div>
+                        </div>
+                        <div class="stat-card p-5 rounded-lg">
+                            <div class="text-green-400 text-2xl font-bold mb-2">50+</div>
+                            <div class="text-gray-300 font-semibold">Events Yearly</div>
+                        </div>
+                        <div class="stat-card p-5 rounded-lg">
+                            <div class="text-yellow-400 text-2xl font-bold mb-2">15+</div>
+                            <div class="text-gray-300 font-semibold">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 fade-in">
+                    <div class="holographic-card rounded-2xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                             alt="QCFI Team" class="w-full h-80 object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section with 3D Cards -->
+    <section class="py-20 bg-gradient-to-br from-purple-900/20 to-blue-900/20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="heading-font text-4xl md:text-5xl text-center text-white mb-4 fade-in">Why Choose QCFI Bengaluru?</h2>
+            <p class="text-xl text-gray-400 text-center max-w-3xl mx-auto mb-16 fade-in">
+                We are committed to fostering a culture of continuous improvement and excellence through innovative quality initiatives.
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- 3D Flip Card 1 -->
+                <!-- Feature 1 -->
                 <div class="flip-card fade-in">
                     <div class="flip-card-inner">
                         <div class="flip-card-front holographic-card">
                             <div class="text-4xl mb-4 text-blue-400">
-                                <i class="fas fa-brain"></i>
+                                <i class="fas fa-users-gear"></i>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Intelligent Quality</h3>
-                            <p class="text-gray-400">AI-powered quality insights</p>
+                            <h3 class="text-xl font-bold text-white mb-4">Quality Circles</h3>
+                            <p class="text-gray-400">Empower your employees to identify and solve work-related problems through structured small group activities.</p>
                         </div>
                         <div class="flip-card-back">
-                            <h3 class="text-xl font-bold text-white mb-4">Smart Solutions</h3>
-                            <p class="text-white/80">Leverage cutting-edge technology for quality excellence</p>
-                            <button class="mt-4 px-4 py-2 bg-white/20 rounded-full text-white text-sm">Learn More</button>
+                            <h3 class="text-xl font-bold text-white mb-4">Team Collaboration</h3>
+                            <p class="text-white/80 mb-4">Structured problem-solving techniques and team collaboration for continuous improvement.</p>
+                            <a href="#" class="mt-4 px-4 py-2 bg-white/20 rounded-full text-white text-sm hover:bg-white/30 transition duration-300">Learn More</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- 3D Flip Card 2 -->
+                <!-- Feature 2 -->
                 <div class="flip-card fade-in">
                     <div class="flip-card-inner">
                         <div class="flip-card-front holographic-card">
                             <div class="text-4xl mb-4 text-purple-400">
-                                <i class="fas fa-network-wired"></i>
+                                <i class="fas fa-graduation-cap"></i>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Global Network</h3>
-                            <p class="text-gray-400">Connect with quality leaders</p>
+                            <h3 class="text-xl font-bold text-white mb-4">Professional Development</h3>
+                            <p class="text-gray-400">Access cutting-edge training programs and workshops led by industry experts and quality professionals.</p>
                         </div>
                         <div class="flip-card-back">
-                            <h3 class="text-xl font-bold text-white mb-4">Worldwide Reach</h3>
-                            <p class="text-white/80">Join our international community of quality professionals</p>
-                            <button class="mt-4 px-4 py-2 bg-white/20 rounded-full text-white text-sm">Join Network</button>
+                            <h3 class="text-xl font-bold text-white mb-4">Skill Enhancement</h3>
+                            <p class="text-white/80 mb-4">Certification programs and latest methodologies for professional growth.</p>
+                            <a href="#" class="mt-4 px-4 py-2 bg-white/20 rounded-full text-white text-sm hover:bg-white/30 transition duration-300">Explore Programs</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- 3D Flip Card 3 -->
+                <!-- Feature 3 -->
                 <div class="flip-card fade-in">
                     <div class="flip-card-inner">
                         <div class="flip-card-front holographic-card">
                             <div class="text-4xl mb-4 text-green-400">
-                                <i class="fas fa-chart-line"></i>
+                                <i class="fas fa-network-wired"></i>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Proven Results</h3>
-                            <p class="text-gray-400">40+ years of excellence</p>
+                            <h3 class="text-xl font-bold text-white mb-4">Industry Network</h3>
+                            <p class="text-gray-400">Connect with quality professionals across various industries and share best practices and insights.</p>
                         </div>
                         <div class="flip-card-back">
-                            <h3 class="text-xl font-bold text-white mb-4">Track Record</h3>
-                            <p class="text-white/80">Trusted by leading organizations worldwide since 1982</p>
-                            <button class="mt-4 px-4 py-2 bg-white/20 rounded-full text-white text-sm">See Results</button>
+                            <h3 class="text-xl font-bold text-white mb-4">Global Connections</h3>
+                            <p class="text-white/80 mb-4">Peer learning, knowledge sharing, and collaborative projects with industry leaders.</p>
+                            <a href="#" class="mt-4 px-4 py-2 bg-white/20 rounded-full text-white text-sm hover:bg-white/30 transition duration-300">Join Network</a>
                         </div>
                     </div>
                 </div>
@@ -556,102 +772,243 @@
         </div>
     </section>
 
-    <!-- Animated Process Section -->
-    <section class="py-20 relative parallax" style="background-image: url('https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80"></div>
-        <div class="relative z-10 container mx-auto px-6">
-            <h2 class="heading-font text-4xl md:text-5xl text-center text-white mb-16 fade-in">Our Quality Process</h2>
+    <!-- Upcoming Events Section -->
+    <section class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="heading-font text-4xl md:text-5xl text-center text-white mb-4 fade-in">Upcoming Events</h2>
+            <p class="text-xl text-gray-400 text-center max-w-3xl mx-auto mb-16 fade-in">
+                Join our upcoming workshops, seminars, and networking events to stay ahead in quality management.
+            </p>
             
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="text-center fade-in">
-                    <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold border-4 border-white/20">1</div>
-                    <h3 class="text-xl font-bold text-white mb-2">Analyze</h3>
-                    <p class="text-gray-300">Deep dive into quality metrics</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Featured Event -->
+                <div class="holographic-card rounded-2xl overflow-hidden card-hover">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                             alt="Quality Conference" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                        <div class="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Featured Event
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm font-semibold">Conference</span>
+                            <span class="text-gray-400 text-sm">November 15, 2023 | 9:00 AM</span>
+                        </div>
+                        <h3 class="heading-font text-2xl font-bold text-white mb-4">Annual Quality Summit 2023</h3>
+                        <p class="text-gray-300 mb-6">
+                            Join industry leaders for insights on emerging trends in quality management, digital transformation, and sustainable practices.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-blue-400 font-semibold">Bangalore International Centre</span>
+                            <a href="events.html" class="magnetic-btn text-sm">
+                                Register Now
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-center fade-in">
-                    <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white text-2xl font-bold border-4 border-white/20">2</div>
-                    <h3 class="text-xl font-bold text-white mb-2">Implement</h3>
-                    <p class="text-gray-300">Deploy quality solutions</p>
+                
+                <!-- Events List -->
+                <div class="space-y-6">
+                    <!-- Event 1 -->
+                    <div class="holographic-card rounded-xl p-6 card-hover">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-blue-600 text-white p-3 rounded-lg text-center min-w-16">
+                                <div class="text-lg font-bold">DEC</div>
+                                <div class="text-xl font-bold">05</div>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-white mb-2">Kaizen Workshop</h4>
+                                <p class="text-gray-300 mb-3">Hands-on training on continuous improvement methodologies</p>
+                                <div class="flex items-center text-sm text-gray-400">
+                                    <i class="fas fa-clock mr-2"></i>
+                                    <span>2:00 PM - 5:00 PM</span>
+                                    <i class="fas fa-map-marker-alt ml-4 mr-2"></i>
+                                    <span>QCFI Training Center</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Event 2 -->
+                    <div class="holographic-card rounded-xl p-6 card-hover">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-blue-600 text-white p-3 rounded-lg text-center min-w-16">
+                                <div class="text-lg font-bold">JAN</div>
+                                <div class="text-xl font-bold">12</div>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-white mb-2">Quality Leaders Meet</h4>
+                                <p class="text-gray-300 mb-3">Networking session for quality professionals</p>
+                                <div class="flex items-center text-sm text-gray-400">
+                                    <i class="fas fa-clock mr-2"></i>
+                                    <span>6:00 PM - 8:00 PM</span>
+                                    <i class="fas fa-map-marker-alt ml-4 mr-2"></i>
+                                    <span>Hotel Grand Mercure</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Event 3 -->
+                    <div class="holographic-card rounded-xl p-6 card-hover">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-blue-600 text-white p-3 rounded-lg text-center min-w-16">
+                                <div class="text-lg font-bold">FEB</div>
+                                <div class="text-xl font-bold">08</div>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-white mb-2">Six Sigma Training</h4>
+                                <p class="text-gray-300 mb-3">Advanced statistical process control techniques</p>
+                                <div class="flex items-center text-sm text-gray-400">
+                                    <i class="fas fa-clock mr-2"></i>
+                                    <span>9:00 AM - 4:00 PM</span>
+                                    <i class="fas fa-map-marker-alt ml-4 mr-2"></i>
+                                    <span>QCFI Training Center</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-center fade-in">
-                    <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-r from-pink-500 to-red-600 rounded-full flex items-center justify-center text-white text-2xl font-bold border-4 border-white/20">3</div>
-                    <h3 class="text-xl font-bold text-white mb-2">Monitor</h3>
-                    <p class="text-gray-300">Track performance metrics</p>
-                </div>
-                <div class="text-center fade-in">
-                    <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-r from-red-500 to-orange-600 rounded-full flex items-center justify-center text-white text-2xl font-bold border-4 border-white/20">4</div>
-                    <h3 class="text-xl font-bold text-white mb-2">Improve</h3>
-                    <p class="text-gray-300">Continuous enhancement</p>
-                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="events.html" class="magnetic-btn px-8 py-3">
+                    View All Events
+                    <i class="fas fa-arrow-right ml-3"></i>
+                </a>
             </div>
         </div>
     </section>
-    <!-- Design Switcher - Fixed Position -->
-<div class="fixed bottom-4 right-4 z-50">
-    <div class="bg-white/10 backdrop-blur-lg rounded-full p-2 border border-white/20">
-        <div class="flex space-x-2">
-            <a href="index.html" 
-               class="px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-semibold transition-all duration-300 hover:bg-blue-700">
-               Design 1
-            </a>
-            <a href="design-modern.html" 
-               class="px-4 py-2 bg-purple-600 text-white rounded-full text-sm font-semibold transition-all duration-300 hover:bg-purple-700">
-               Design 2
-            </a>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-700 text-white relative">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="heading-font text-4xl font-bold mb-6">Ready to Transform Your Organization?</h2>
+            <p class="text-xl mb-10 max-w-2xl mx-auto">
+                Join QCFI Bengaluru today and become part of a community dedicated to excellence through quality improvement.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a href="membership/online-membership.html" class="magnetic-btn px-8 py-4 text-lg">
+                    Become a Member
+                </a>
+                <a href="about/contact.html" class="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-full font-semibold text-lg transition duration-300">
+                    Contact Us
+                </a>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900/50 backdrop-blur-lg border-t border-gray-800/50 py-12">
+    <footer class="bg-gray-900/50 backdrop-blur-lg border-t border-gray-800/50 py-16">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- Column 1 -->
                 <div>
                     <div class="flex items-center space-x-3 mb-6">
-                        <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                            <img src="https://www.qcfitraining.com/images/logo.png" alt="QCFI" class="w-6 h-6 filter brightness-0 invert">
+                        <div class="logo-container">
+                            <img src="https://www.qcfitraining.com/images/logo.png" alt="QCFI Logo" class="h-10 w-auto">
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold text-white">QCFI BENGALURU</h3>
-                            <p class="text-xs text-gray-400">Quality Excellence Since 1982</p>
+                            <h3 class="text-xl font-bold text-white heading-font">QCFI Bengaluru</h3>
+                            <p class="text-sm text-gray-400">Quality Circle Forum of India</p>
                         </div>
                     </div>
-                    <p class="text-gray-400 text-sm mb-6">
-                        Leading the quality revolution in Bengaluru's industrial landscape.
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Promoting Quality Circle activities and fostering a culture of continuous improvement in organizations across Bengaluru region.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
-                            <i class="fab fa-linkedin text-lg"></i>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300 text-xl">
+                            <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
-                            <i class="fab fa-twitter text-lg"></i>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300 text-xl">
+                            <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
-                            <i class="fab fa-youtube text-lg"></i>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300 text-xl">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300 text-xl">
+                            <i class="fab fa-youtube"></i>
                         </a>
                     </div>
                 </div>
                 
-                <!-- Footer columns... -->
-
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-6 heading-font">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="events.html" class="text-gray-400 hover:text-white transition duration-300">Upcoming Events</a></li>
+                        <li><a href="conventions.html" class="text-gray-400 hover:text-white transition duration-300">Conventions</a></li>
+                        <li><a href="articles.html" class="text-gray-400 hover:text-white transition duration-300">Articles</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-6 heading-font">Membership</h3>
+                    <ul class="space-y-3">
+                        <li><a href="membership/online-membership.html" class="text-gray-400 hover:text-white transition duration-300">Online Membership</a></li>
+                        <li><a href="membership/download-membership.html" class="text-gray-400 hover:text-white transition duration-300">Download Form</a></li>
+                        <li><a href="https://qcfi.in/qcfihq/" class="text-gray-400 hover:text-white transition duration-300">Member Login</a></li>
+                        <li><a href="chapters.html" class="text-gray-400 hover:text-white transition duration-300">Chapters</a></li>
+                        <li><a href="concepts.html" class="text-gray-400 hover:text-white transition duration-300">Concepts</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-6 heading-font">Contact Us</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-blue-400 mt-1 mr-4"></i>
+                            <span class="text-gray-400">QCFI Bengaluru Chapter, #123, Industrial Area, Bengaluru - 560001</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone text-blue-400 mt-1 mr-4"></i>
+                            <span class="text-gray-400">+91 80 1234 5678</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-blue-400 mt-1 mr-4"></i>
+                            <span class="text-gray-400">bengaluru@qcfi.in</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
             
-            <div class="border-t border-gray-800/50 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 QCFI Bengaluru Chapter. All rights reserved.</p>
                 <div class="text-center">
                     <p class="text-gray-400 text-sm">
-                        Crafted with ❤️ by 
+                        Powered by 
                         <a href="https://www.folkdrive.in" 
                            target="_blank" 
                            rel="noopener noreferrer"
-                           class="text-blue-400 hover:text-blue-300 font-semibold transition-colors duration-300">
-                            Folkdrive India
+                           class="text-blue-400 hover:text-blue-300 font-semibold transition duration-300">
+                            Folkdrive India Private Limited
                         </a>
                     </p>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Design Switcher -->
+    <div class="fixed bottom-4 right-4 z-50">
+        <div class="bg-white/10 backdrop-blur-lg rounded-full p-2 border border-white/20">
+            <div class="flex space-x-2">
+                <a href="index.html" 
+                   class="px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-semibold transition-all duration-300 hover:bg-blue-700">
+                   Design 1
+                </a>
+                <a href="design-modern.html" 
+                   class="px-4 py-2 bg-purple-600 text-white rounded-full text-sm font-semibold transition-all duration-300 hover:bg-purple-700">
+                   Design 2
+                </a>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Premium Loader
@@ -739,6 +1096,20 @@
             
             btn.addEventListener('mouseleave', function() {
                 this.style.transform = 'translate(0, 0)';
+            });
+        });
+
+        // Dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('mouseenter', function() {
+                    this.querySelector('.dropdown-menu').classList.remove('hidden');
+                });
+                
+                dropdown.addEventListener('mouseleave', function() {
+                    this.querySelector('.dropdown-menu').classList.add('hidden');
+                });
             });
         });
 
