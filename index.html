@@ -41,12 +41,14 @@
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
+            width: 100%;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            width: 100%;
         }
 
         /* Header with Logo and Navigation */
@@ -128,7 +130,7 @@
             left: 100%;
         }
 
-        /* Mobile Menu Button - FIXED POSITIONING */
+        /* Mobile Menu Button - CENTERED POSITIONING */
         .mobile-menu-btn {
             display: none;
             background: var(--primary-blue);
@@ -142,9 +144,6 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            position: fixed;
-            top: 15px;
-            right: 20px;
             z-index: 1001;
         }
 
@@ -166,11 +165,6 @@
         .mobile-menu-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
-        }
-
-        .nav-trigger:hover .trigger-indicator {
-            opacity: 1;
-            transform: translateY(-5px);
         }
 
         .trigger-indicator {
@@ -229,9 +223,10 @@
             visibility: hidden;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border-bottom: 1px solid var(--border-light);
-            padding: 80px 0 40px;
+            padding: 80px 20px 40px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             overflow-y: auto;
+            box-sizing: border-box;
         }
 
         .vertical-nav.active {
@@ -245,7 +240,7 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 40px;
-            padding: 0 20px;
+            padding: 0 10px;
         }
 
         .close-nav {
@@ -287,7 +282,9 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
-            padding: 0 20px;
+            padding: 0 10px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .nav-column h3 {
@@ -1266,15 +1263,25 @@
         @media (max-width: 768px) {
             .header {
                 height: 60px;
+                padding: 0 15px;
             }
 
             .mobile-menu-btn {
                 display: block;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .nav-trigger .trigger-indicator {
+                display: none;
             }
 
             .nav-grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
+                padding: 0 10px;
             }
             
             .nav-header {
@@ -1282,6 +1289,7 @@
                 gap: 20px;
                 text-align: center;
                 margin-bottom: 30px;
+                padding: 0 10px;
             }
 
             .logo img {
@@ -1365,7 +1373,7 @@
 
             .nav-header,
             .nav-grid {
-                padding: 0 15px;
+                padding: 0 10px;
             }
 
             .hero h1 {
