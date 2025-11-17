@@ -67,7 +67,7 @@
         /* Mobile Menu Button - FIXED POSITIONING */
         .mobile-menu-btn {
             display: none;
-            position: fixed;
+            position: absolute;
             top: 15px;
             right: 20px;
             z-index: 1001;
@@ -75,7 +75,7 @@
             color: white;
             border: none;
             border-radius: 8px;
-            padding: 10px 15px;
+            padding: 10px 12px;
             cursor: pointer;
             font-size: 16px;
             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
@@ -812,10 +812,14 @@
         @media (max-width: 768px) {
             .nav-trigger {
                 height: 60px;
+                position: relative;
             }
 
             .mobile-menu-btn {
                 display: block;
+                position: absolute;
+                top: 15px;
+                right: 20px;
             }
 
             .nav-grid {
@@ -994,11 +998,6 @@
     </style>
 </head>
 <body>
-    <!-- Mobile Menu Button - FIXED POSITIONING -->
-    <button class="mobile-menu-btn" id="mobileMenuBtn">
-        <i class="fas fa-bars"></i> Menu
-    </button>
-
     <!-- Innovative Navigation System -->
     <div class="nav-trigger" id="navTrigger">
         <div class="trigger-indicator">
@@ -1006,6 +1005,11 @@
             Menu
             <div class="trigger-line"></div>
         </div>
+        
+        <!-- Mobile Menu Button - POSITIONED INSIDE NAV TRIGGER -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
     </div>
 
     <nav class="vertical-nav" id="verticalNav">
