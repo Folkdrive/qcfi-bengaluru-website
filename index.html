@@ -75,6 +75,13 @@
             gap: 10px;
             position: relative;
             z-index: 1002;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo:hover {
+            opacity: 0.9;
         }
 
         .logo img {
@@ -319,31 +326,30 @@
             filter: brightness(0.8) sepia(0.3) hue-rotate(200deg) saturate(0.8);
         }
 
-        /* Left to Right Animation */
+        /* FIXED: Video scrolling animations - NO HORIZONTAL OVERFLOW */
         .scroll-ltr {
             animation: scrollLeftToRight 40s linear infinite;
         }
 
-        /* Right to Left Animation */
         .scroll-rtl {
             animation: scrollRightToLeft 35s linear infinite;
         }
 
         @keyframes scrollLeftToRight {
             0% {
-                transform: translate(-50%, -50%) translateX(-5%);
+                transform: translate(-50%, -50%) translateX(-2%);
             }
             100% {
-                transform: translate(-50%, -50%) translateX(5%);
+                transform: translate(-50%, -50%) translateX(2%);
             }
         }
 
         @keyframes scrollRightToLeft {
             0% {
-                transform: translate(-50%, -50%) translateX(5%);
+                transform: translate(-50%, -50%) translateX(2%);
             }
             100% {
-                transform: translate(-50%, -50%) translateX(-5%);
+                transform: translate(-50%, -50%) translateX(-2%);
             }
         }
 
@@ -1278,19 +1284,19 @@
 
             @keyframes scrollLeftToRight {
                 0% {
-                    transform: translate(-50%, -50%) translateX(-8%);
+                    transform: translate(-50%, -50%) translateX(-4%);
                 }
                 100% {
-                    transform: translate(-50%, -50%) translateX(8%);
+                    transform: translate(-50%, -50%) translateX(4%);
                 }
             }
 
             @keyframes scrollRightToLeft {
                 0% {
-                    transform: translate(-50%, -50%) translateX(8%);
+                    transform: translate(-50%, -50%) translateX(4%);
                 }
                 100% {
-                    transform: translate(-50%, -50%) translateX(-8%);
+                    transform: translate(-50%, -50%) translateX(-4%);
                 }
             }
 
@@ -1412,10 +1418,10 @@
 <body>
     <!-- Header with Logo and Navigation -->
     <header class="header" role="banner">
-        <div class="logo">
+        <a href="index.html" class="logo">
             <img src="https://www.qcfitraining.com/images/logo.png" alt="QCFI Logo - Quality Circle Forum of India Bengaluru Chapter">
             <div class="logo-text">QCFI Bengaluru Chapter</div>
-        </div>
+        </a>
         
         <!-- Desktop Navigation Trigger -->
         <div class="nav-trigger" id="navTrigger" aria-expanded="false" aria-controls="verticalNav">
@@ -1442,15 +1448,16 @@
 
         <div class="nav-grid">
             <div class="nav-column">
-                <h3>About Us</h3>
-                <ul class="nav-links">
-                    <li><a href="#vision"><i class="fas fa-eye"></i> Vision & Mission</a></li>
-                    <li><a href="#history"><i class="fas fa-history"></i> History</a></li>
-                    <li><a href="#contact"><i class="fas fa-map-marker-alt"></i> Contact & Location</a></li>
-                    <li><a href="#board"><i class="fas fa-users"></i> Board of Directors</a></li>
-                    <li><a href="#founder"><i class="fas fa-user-tie"></i> Founder Director</a></li>
-                </ul>
-            </div>
+    <h3>About Us</h3>
+    <ul class="nav-links">
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About QCFI Bengaluru</a></li>
+        <li><a href="about/vision-mission.html"><i class="fas fa-bullseye"></i> Vision & Mission</a></li>
+        <li><a href="about/history.html"><i class="fas fa-history"></i> History</a></li>
+        <li><a href="about/contact.html"><i class="fas fa-map-marker-alt"></i> Contact & Location</a></li>
+        <li><a href="about/board.html"><i class="fas fa-users"></i> Board of Directors</a></li>
+        <li><a href="about/founder.html"><i class="fas fa-user-tie"></i> Founder Director</a></li>
+    </ul>
+</div>
 
             <div class="nav-column">
                 <h3>Programs</h3>
@@ -1464,26 +1471,26 @@
             </div>
 
             <div class="nav-column">
-                <h3>Events</h3>
-                <ul class="nav-links">
-                    <li><a href="#upcoming"><i class="fas fa-calendar-alt"></i> Upcoming Events</a></li>
-                    <li><a href="#ccqc2025"><i class="fas fa-microphone"></i> CCQC 2025</a></li>
-                    <li><a href="#icqcc"><i class="fas fa-globe"></i> ICQCC</a></li>
-                    <li><a href="#seminars"><i class="fas fa-chart-line"></i> Training Seminars</a></li>
-                    <li><a href="#networking"><i class="fas fa-network-wired"></i> Networking Events</a></li>
-                </ul>
-            </div>
+    <h3>Events</h3>
+    <ul class="nav-links">
+        <li><a href="events.html"><i class="fas fa-calendar-alt"></i> Upcoming Events</a></li>
+        <li><a href="conventions/ccqc2025.html"><i class="fas fa-microphone"></i> CCQC 2025</a></li>
+        <li><a href="conventions/icqcc.html"><i class="fas fa-globe"></i> ICQCC</a></li>
+        <li><a href="#seminars"><i class="fas fa-chart-line"></i> Training Seminars</a></li>
+        <li><a href="#networking"><i class="fas fa-network-wired"></i> Networking Events</a></li>
+    </ul>
+</div>
 
-            <div class="nav-column">
-                <h3>Membership</h3>
-                <ul class="nav-links">
-                    <li><a href="https://qcfi.in/qcfihq/" target="_blank"><i class="fas fa-user-plus"></i> Online Membership</a></li>
-                    <li><a href="https://qcfi.in/wp-content/uploads/2022/07/New-Membership-Application_QCFI-04-07-2022.pdf" target="_blank"><i class="fas fa-download"></i> Membership Form</a></li>
-                    <li><a href="#benefits"><i class="fas fa-star"></i> Benefits</a></li>
-                    <li><a href="#renew"><i class="fas fa-sync"></i> Renew Membership</a></li>
-                    <li><a href="#support"><i class="fas fa-headset"></i> Membership Support</a></li>
-                </ul>
-            </div>
+           <div class="nav-column">
+    <h3>Membership</h3>
+    <ul class="nav-links">
+        <li><a href="membership/online-membership.html"><i class="fas fa-user-plus"></i> Online Membership</a></li>
+        <li><a href="membership/download-membership.html"><i class="fas fa-download"></i> Membership Form</a></li>
+        <li><a href="membership/index.html"><i class="fas fa-star"></i> Benefits</a></li>
+        <li><a href="#renew"><i class="fas fa-sync"></i> Renew Membership</a></li>
+        <li><a href="#support"><i class="fas fa-headset"></i> Membership Support</a></li>
+    </ul>
+</div>
 
             <div class="nav-cta">
                 <a href="https://qcfi.in/qcfihq/" target="_blank" class="btn-primary">Join QCFI Bengaluru Today</a>
@@ -1727,15 +1734,16 @@
                 </div>
                 
                 <div class="footer-col slide-in-up">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#programs">Programs</a></li>
-                        <li><a href="#events">Events</a></li>
-                        <li><a href="#conventions">Conventions</a></li>
-                    </ul>
-                </div>
+    <h3>Quick Links</h3>
+    <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="about/vision-mission.html">Vision & Mission</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="conventions/index.html">Conventions</a></li>
+        <li><a href="membership/index.html">Membership</a></li>
+    </ul>
+</div>
                 
                 <div class="footer-col slide-in-up">
                     <h3>Membership</h3>
