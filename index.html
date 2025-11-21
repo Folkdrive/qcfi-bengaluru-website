@@ -97,9 +97,9 @@
             color: white;
             border: none;
             border-radius: 6px;
-            padding: 8px 10px;
+            padding: 10px 12px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 16px;
             box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
             transition: all 0.3s ease;
             z-index: 1001;
@@ -331,19 +331,19 @@
 
         @keyframes scrollLeftToRight {
             0% {
-                transform: translate(-50%, -50%) translateX(-10%);
+                transform: translate(-50%, -50%) translateX(-5%);
             }
             100% {
-                transform: translate(-50%, -50%) translateX(10%);
+                transform: translate(-50%, -50%) translateX(5%);
             }
         }
 
         @keyframes scrollRightToLeft {
             0% {
-                transform: translate(-50%, -50%) translateX(10%);
+                transform: translate(-50%, -50%) translateX(5%);
             }
             100% {
-                transform: translate(-50%, -50%) translateX(-10%);
+                transform: translate(-50%, -50%) translateX(-5%);
             }
         }
 
@@ -1011,37 +1011,143 @@
         .video-play-btn i {
             font-size: 1.5rem;
         }
-        /* Video Tagline Styles */
-        .video-tagline {
-            position: absolute;
-            bottom: 100px;
-            right: 30px;
-            text-align: right;
-            z-index: 3;
-            pointer-events: none;
-        }
+    /* Video Tagline Styles */
+.video-tagline {
+    position: absolute;
+    bottom: 30px;
+    right: 100px;
+    text-align: right;
+    z-index: 3;
+    pointer-events: none;
+}
 
-        .tagline-content {
-            display: inline-block;
-            background: transparent;
-            color: var(--text-dark);
-            padding: 0;
-            border-radius: 0;
-            backdrop-filter: none;
-            box-shadow: none;
-        }
+.tagline-content {
+    display: inline-block;
+    background: transparent;
+    color: var(--text-dark);
+    padding: 0;
+    border-radius: 0;
+    backdrop-filter: none;
+    box-shadow: none;
+}
 
-        .tagline-content h3 {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0;
-            color: var(--text-dark);
-        }
+.tagline-content h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0;
+    color: var(--text-dark);
+    white-space: nowrap;
+}
 
-        .tagline-content p {
-            display: none;
-        }
+.tagline-content p {
+    display: none;
+}
+
+/* Play Button in Hero Section */
+.video-play-btn {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 3;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+    transition: all 0.3s ease;
+}
+
+.video-play-btn:hover {
+    background: var(--secondary-blue);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+}
+
+.video-play-btn i {
+    font-size: 1.5rem;
+}
+
+/* Mobile optimization for video elements */
+@media (max-width: 768px) {
+    .video-play-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .video-play-btn i {
+        font-size: 1.2rem;
+    }
+    
+    .video-tagline {
+        bottom: 20px;
+        right: 80px;
+    }
+    
+    .tagline-content h3 {
+        font-size: 0.75rem;
+        white-space: normal;
+        max-width: 100px;
+        line-height: 1.2;
+        text-align: right;
+    }
+}
+
+/* For very small mobile devices */
+@media (max-width: 480px) {
+    .video-play-btn {
+        width: 45px;
+        height: 45px;
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .video-play-btn i {
+        font-size: 1.1rem;
+    }
+    
+    .video-tagline {
+        bottom: 15px;
+        right: 70px;
+    }
+    
+    .tagline-content h3 {
+        font-size: 0.7rem;
+        max-width: 90px;
+    }
+}
+
+/* For extra small screens */
+@media (max-width: 360px) {
+    .video-play-btn {
+        width: 40px;
+        height: 40px;
+        bottom: 12px;
+        right: 12px;
+    }
+    
+    .video-play-btn i {
+        font-size: 1rem;
+    }
+    
+    .video-tagline {
+        bottom: 12px;
+        right: 62px;
+    }
+    
+    .tagline-content h3 {
+        font-size: 0.65rem;
+        max-width: 80px;
+    }
+}
         /* Desktop Styles */
         @media (min-width: 769px) {
             .header {
@@ -1076,13 +1182,13 @@
 
             .trigger-indicator {
                 color: var(--text-dark);
-                font-size: 14px;
+                font-size: 16px;
                 opacity: 0.7;
                 transition: all 0.3s ease;
                 display: flex;
                 align-items: center;
                 gap: 10px;
-                padding: 8px 12px;
+                padding: 10px 14px;
                 border-radius: 6px;
                 font-weight: 500;
             }
@@ -1161,7 +1267,7 @@
                 gap: 40px;
             }
 
-            /* Enhanced video scrolling for desktop */
+            /* FIXED: Enhanced video scrolling for desktop - NO HORIZONTAL OVERFLOW */
             .scroll-ltr {
                 animation: scrollLeftToRight 30s linear infinite;
             }
@@ -1172,19 +1278,19 @@
 
             @keyframes scrollLeftToRight {
                 0% {
-                    transform: translate(-50%, -50%) translateX(-15%);
+                    transform: translate(-50%, -50%) translateX(-8%);
                 }
                 100% {
-                    transform: translate(-50%, -50%) translateX(15%);
+                    transform: translate(-50%, -50%) translateX(8%);
                 }
             }
 
             @keyframes scrollRightToLeft {
                 0% {
-                    transform: translate(-50%, -50%) translateX(15%);
+                    transform: translate(-50%, -50%) translateX(8%);
                 }
                 100% {
-                    transform: translate(-50%, -50%) translateX(-15%);
+                    transform: translate(-50%, -50%) translateX(-8%);
                 }
             }
 
