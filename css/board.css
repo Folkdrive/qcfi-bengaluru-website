@@ -1,0 +1,577 @@
+/* Board Page Specific Styles - Following About Page Pattern */
+/* Board Hero with Background Image */
+.board-hero {
+    height: 70vh;
+    min-height: 500px;
+    background: 
+        linear-gradient(rgba(37, 99, 235, 0.7), rgba(59, 130, 246, 0.6)),
+        url('../images/Stock/11.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 20px 60px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.board-hero .hero-content h1 {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.board-hero .hero-content p {
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.board-hero .hero-btns {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.board-hero .btn-primary {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.board-hero .btn-primary:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.board-hero .btn-secondary {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.board-hero .btn-secondary:hover {
+    background: white;
+    color: var(--primary-blue);
+}
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
+    border-radius: 2px;
+}
+
+.section-header p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+/* Executive Board Section */
+.executive-board {
+    background: var(--bg-white);
+    padding: 80px 0;
+    overflow-x: hidden;
+}
+
+.board-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    overflow: hidden;
+}
+
+.board-card {
+    background: var(--bg-white);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.board-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-blue);
+}
+
+.member-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.board-card:hover .member-image img {
+    transform: scale(1.08);
+}
+
+.member-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.member-info {
+    padding: 30px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.member-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.member-info .position {
+    color: var(--primary-blue);
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.member-info .description {
+    color: var(--text-light);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Functionaries Section */
+.functionaries {
+    background: var(--bg-light);
+    padding: 80px 0;
+    overflow-x: hidden;
+}
+
+.functionaries-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    overflow: hidden;
+}
+
+.functionary-card {
+    background: var(--bg-white);
+    border-radius: 15px;
+    padding: 40px 30px;
+    text-align: center;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.functionary-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
+}
+
+.functionary-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-blue);
+}
+
+.functionary-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s ease;
+}
+
+.functionary-card:hover .functionary-icon {
+    transform: scale(1.1);
+}
+
+.functionary-icon i {
+    font-size: 1.8rem;
+    color: white;
+}
+
+.functionary-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.functionary-info .position {
+    color: var(--primary-blue);
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.functionary-info .description {
+    color: var(--text-light);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Governing Council Section */
+.governing-council {
+    background: var(--bg-white);
+    padding: 80px 0;
+    overflow-x: hidden;
+}
+
+.council-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    overflow: hidden;
+}
+
+.council-card {
+    background: var(--bg-white);
+    border-radius: 15px;
+    padding: 30px 25px;
+    text-align: center;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.council-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary-blue);
+}
+
+.council-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 3px solid var(--primary-blue);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s ease;
+}
+
+.council-card:hover .council-image {
+    transform: scale(1.05);
+}
+
+.council-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.council-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.council-info .position {
+    color: var(--primary-blue);
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+
+.council-info .description {
+    color: var(--text-light);
+    line-height: 1.6;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Board Mission Section */
+.board-mission {
+    background: var(--bg-light);
+    padding: 80px 0;
+    overflow-x: hidden;
+}
+
+.mission-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mission-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    color: var(--text-dark);
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+}
+
+.mission-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
+    border-radius: 2px;
+}
+
+.mission-content p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    font-weight: 500;
+}
+
+.mission-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.mission-stat {
+    text-align: center;
+}
+
+.mission-stat h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 8px;
+}
+
+.mission-stat p {
+    color: var(--text-light);
+    font-weight: 600;
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Board CTA Section */
+.board-cta {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+    padding: 80px 0;
+    text-align: center;
+    color: white;
+    overflow-x: hidden;
+}
+
+.cta-content h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+.cta-content p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.board-cta .btn-primary {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.board-cta .btn-primary:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.board-cta .btn-secondary {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.board-cta .btn-secondary:hover {
+    background: white;
+    color: var(--primary-blue);
+}
+
+/* Horizontal Scroll Prevention */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.container {
+    overflow-x: hidden;
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+    .board-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .functionaries-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .council-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .mission-stats {
+        gap: 50px;
+    }
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .board-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .council-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .mission-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+}
+
+/* Mobile Optimization */
+@media (max-width: 767px) {
+    .board-hero {
+        height: 60vh;
+        min-height: 400px;
+        padding: 80px 20px 40px;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .member-image {
+        height: 200px;
+    }
+
+    .member-info {
+        padding: 20px;
+    }
+
+    .functionary-card {
+        padding: 30px 20px;
+    }
+
+    .council-card {
+        padding: 25px 20px;
+    }
+
+    .council-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .mission-content h2 {
+        font-size: 2rem;
+    }
+
+    .mission-stats {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-buttons .btn-primary,
+    .cta-buttons .btn-secondary {
+        width: 200px;
+    }
+}

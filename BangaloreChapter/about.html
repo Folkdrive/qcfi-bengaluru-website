@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About QCFI | Quality Circle Forum of India | Bengaluru Chapter</title>
+    <meta name="description" content="Learn about QCFI Bengaluru Chapter - Promoting Quality Circle concepts, Total Quality Management, and Continuous Improvement across industries since 1982.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../images/logo.png" type="image/png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Library for Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- About Page Specific CSS -->
+    <link rel="stylesheet" href="../css/about.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <a href="../index.html" class="logo">
+            <img src="../images/logo.png" alt="QCFI Logo - Quality Circle Forum of India Bengaluru Chapter">
+            <div class="logo-text">QCFI Bengaluru Chapter</div>
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav" role="navigation">
+            <ul class="nav-links-desktop">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link has-submenu active">Bangalore Chapter</a>
+                    <div class="dropdown-menu active">
+                        <a href="about.html" class="dropdown-item">About Us</a>
+                        <a href="vision-mission.html" class="dropdown-item">Vision & Mission</a>
+                        <a href="history.html" class="dropdown-item">History</a>
+                        <a href="founder.html" class="dropdown-item">Founder</a>
+                        <a href="board.html" class="dropdown-item">Board</a>
+                        <a href="contact.html" class="dropdown-item">Contact</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="../events.html" class="nav-link">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link has-submenu">Membership</a>
+                    <div class="dropdown-menu">
+                        <a href="https://qcfi.in/qcfihq/" target="_blank" class="dropdown-item">Online Membership</a>
+                        <a href="../membership/New-Membership-Application_QCFI-04-07-2022.pdf" download class="dropdown-item">Download Membership Form</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="../gallery.html" class="nav-link has-submenu">Gallery</a>
+                    <div class="dropdown-menu">
+                        <a href="../gallery/agm.html" class="dropdown-item">AGM</a>
+                        <a href="../gallery/environmental-day.html" class="dropdown-item">Environmental Day</a>
+                        <a href="../gallery/july-meet.html" class="dropdown-item">July Meet</a>
+                        <a href="../gallery/ncqc24.html" class="dropdown-item">NCQC24</a>
+                        <a href="../gallery/sustainability-meet.html" class="dropdown-item">Sustainability Meet</a>
+                        <a href="../gallery/kaizen-competition.html" class="dropdown-item">Kaizen Competition 2025</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="header-right">
+            <a href="https://qcfi.in/qcfihq/" target="_blank" class="desktop-join-btn">Join Now</a>
+            <button class="right-menu-btn" id="rightMenuBtn" aria-label="Open quick menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+        <div class="nav-header">
+            <button class="close-nav" id="closeNav" aria-label="Close navigation menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="mobile-nav-links">
+            <li class="mobile-nav-item">
+                <a href="../index.html" class="mobile-nav-link">Home</a>
+            </li>
+            <li class="mobile-nav-item active has-submenu">
+                <a href="#" class="mobile-nav-link">
+                    <span>Bangalore Chapter</span>
+                    <i class="fas fa-chevron-down mobile-submenu-toggle"></i>
+                </a>
+                <ul class="mobile-submenu">
+                    <li class="mobile-submenu-item"><a href="about.html" class="mobile-submenu-link">About Us</a></li>
+                    <li class="mobile-submenu-item"><a href="vision-mission.html" class="mobile-submenu-link">Vision & Mission</a></li>
+                    <li class="mobile-submenu-item"><a href="history.html" class="mobile-submenu-link">History</a></li>
+                    <li class="mobile-submenu-item"><a href="founder.html" class="mobile-submenu-link">Founder</a></li>
+                    <li class="mobile-submenu-item"><a href="board.html" class="mobile-submenu-link">Board</a></li>
+                    <li class="mobile-submenu-item"><a href="contact.html" class="mobile-submenu-link">Contact</a></li>
+                </ul>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="../events.html" class="mobile-nav-link">Events</a>
+            </li>
+            <li class="mobile-nav-item has-submenu">
+                <a href="#" class="mobile-nav-link">
+                    <span>Membership</span>
+                    <i class="fas fa-chevron-down mobile-submenu-toggle"></i>
+                </a>
+                <ul class="mobile-submenu">
+                    <li class="mobile-submenu-item"><a href="https://qcfi.in/qcfihq/" target="_blank" class="mobile-submenu-link">Online Membership</a></li>
+                    <li class="mobile-submenu-item"><a href="../membership/New-Membership-Application_QCFI-04-07-2022.pdf" download class="mobile-submenu-link">Download Membership Form</a></li>
+                </ul>
+            </li>
+            <li class="mobile-nav-item has-submenu">
+                <a href="../gallery.html" class="mobile-nav-link">
+                    <span>Gallery</span>
+                    <i class="fas fa-chevron-down mobile-submenu-toggle"></i>
+                </a>
+                <ul class="mobile-submenu">
+                    <li class="mobile-submenu-item"><a href="../gallery/agm.html" class="mobile-submenu-link">AGM</a></li>
+                    <li class="mobile-submenu-item"><a href="../gallery/environmental-day.html" class="mobile-submenu-link">Environmental Day</a></li>
+                    <li class="mobile-submenu-item"><a href="../gallery/july-meet.html" class="mobile-submenu-link">July Meet</a></li>
+                    <li class="mobile-submenu-item"><a href="../gallery/ncqc24.html" class="mobile-submenu-link">NCQC24</a></li>
+                    <li class="mobile-submenu-item"><a href="../gallery/sustainability-meet.html" class="mobile-submenu-link">Sustainability Meet</a></li>
+                    <li class="mobile-submenu-item"><a href="../gallery/kaizen-competition.html" class="mobile-submenu-link">Kaizen Competition 2025</a></li>
+                </ul>
+            </li>
+        </ul>
+        
+        <div class="mobile-nav-cta">
+            <a href="https://qcfi.in/qcfihq/" target="_blank" class="btn-primary">Join QCFI Today</a>
+        </div>
+    </nav>
+
+    <!-- Right Quick Menu -->
+    <div class="right-quick-menu" id="rightQuickMenu">
+        <div class="quick-menu-header">
+            <h3>Quick Links</h3>
+            <button class="close-quick-menu" id="closeQuickMenu" aria-label="Close quick menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="quick-menu-content">
+            <a href="vision-mission.html" class="quick-menu-item">
+                <i class="fas fa-bullseye"></i>
+                <span>Vision & Mission</span>
+            </a>
+            <a href="history.html" class="quick-menu-item">
+                <i class="fas fa-history"></i>
+                <span>Our History</span>
+            </a>
+            <a href="board.html" class="quick-menu-item">
+                <i class="fas fa-users"></i>
+                <span>Board of Directors</span>
+            </a>
+            <a href="contact.html" class="quick-menu-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Contact Us</span>
+            </a>
+            <a href="../membership/online-membership.html" class="quick-menu-item">
+                <i class="fas fa-user-plus"></i>
+                <span>Join Membership</span>
+            </a>
+            <a href="../events.html" class="quick-menu-item">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Upcoming Events</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section with Background Image -->
+    <section class="hero about-hero" role="banner">
+        <!-- Background Image Overlay -->
+        <div class="hero-background-overlay"></div>
+        
+        <div class="hero-content">
+            <h1 data-aos="fade-down">About QCFI Bengaluru</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Quality Circle Forum of India, Bengaluru Chapter - Empowering Karnataka's industries with quality excellence, continuous improvement, and innovation since 1982.</p>
+            <div class="hero-btns" data-aos="fade-up" data-aos-delay="400">
+                <a href="#about" class="btn-primary">Learn More</a>
+                <a href="https://qcfi.in/qcfihq/" target="_blank" class="btn-secondary">Join QCFI</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Intro Section -->
+    <section class="section about-intro" id="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 data-aos="fade-right">About Quality Circle Forum of India</h2>
+                <p data-aos="fade-right" data-aos-delay="100">Quality Circle Forum of India (QCFI) is a non-profit organisation established in 1982 with the main objective of educating people regarding quality concepts in executing day-to-day activities free from work-related problems and empowerment of the workforce through self and mutual development of people and quality improvement of products and services.</p>
+                
+                <p data-aos="fade-right" data-aos-delay="200">QCFI is recognised as the institution representing the Quality Circle Movement in India and has represented the country in several international forums. The organisation has successfully implemented Quality concepts under the TQM umbrella across several industry verticals, which have experienced a phenomenal enhancement of their work processes and productivity after the implementation of Quality Concept Tools.</p>
+
+                <!-- Content with Image -->
+                <div class="content-with-image" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-content">
+                        <p>QCFI provides extensive range of services of quality interventions, training programs, and conventions designed to empower organizations in sectors such as automobile, steel & coal, metals & mining, aerospace & railways, pharma & chemicals, food/FMCG, power & infrastructure, manufacturing, rural & service sectors, textile, health, and education and others.</p>
+                        
+                        <p>The Bengaluru Chapter has been instrumental in bringing quality excellence to Karnataka's diverse industrial landscape, serving as a hub for knowledge sharing, best practices, and continuous improvement initiatives across multiple sectors including IT, manufacturing, healthcare, and service industries.</p>
+                    </div>
+                    <div class="integrated-image">
+                        <img src="../images/Stock/1.jpg" alt="QCFI Quality Training and Development">
+                    </div>
+                </div>
+
+                <!-- Image Gallery -->
+                <div class="image-gallery">
+                    <div class="gallery-item" data-aos="fade-right" data-aos-delay="100">
+                        <img src="../images/Stock/2.jpg" alt="Corporate Meetings and Strategy">
+                        <div class="gallery-caption">
+                            <h4>Corporate Excellence</h4>
+                            <p>Strategic quality discussions</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                        <img src="../images/Stock/3.jpg" alt="Team Collaboration Sessions">
+                        <div class="gallery-caption">
+                            <h4>Team Collaboration</h4>
+                            <p>Working together for excellence</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-aos="fade-left" data-aos-delay="300">
+                        <img src="../images/Stock/4.jpg" alt="Industry Innovation Workshops">
+                        <div class="gallery-caption">
+                            <h4>Industry Innovation</h4>
+                            <p>Driving continuous improvement</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="section mission" id="mission">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-aos="fade-down">Our Core Objectives</h2>
+                <p data-aos="fade-up" data-aos-delay="200">QCFI Bengaluru is dedicated to promoting quality excellence across Karnataka's industries</p>
+            </div>
+            
+            <div class="mission-grid">
+                <div class="mission-card" data-aos="fade-right" data-aos-delay="100">
+                    <div class="mission-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Quality Promotion</h3>
+                    <p>To act as the nodal body for approving implementation of Quality Circle and other related concepts in organizations across Karnataka's diverse industrial landscape.</p>
+                </div>
+                
+                <div class="mission-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="mission-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Industry Collaboration</h3>
+                    <p>To assist both individuals and organizations to launch and operate Quality Circles integrated with TQM and cultivate high standards of ethics amongst members.</p>
+                </div>
+                
+                <div class="mission-card" data-aos="fade-left" data-aos-delay="300">
+                    <div class="mission-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Workforce Development</h3>
+                    <p>To improve, enrich and uplift the quality of work life and provide opportunities for self-development of members of the Quality Circle across industries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- International Section -->
+    <section class="section international" id="international">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-aos="fade-down">International Representation</h2>
+                <p data-aos="fade-up" data-aos-delay="200">QCFI represents India in the international quality community</p>
+            </div>
+            
+            <div class="international-grid">
+                <div class="international-card" data-aos="fade-right" data-aos-delay="100">
+                    <div class="international-image">
+                        <img src="../images/Stock/5.jpg" alt="International Quality Conventions">
+                    </div>
+                    <div class="international-content">
+                        <span class="international-badge">Group A</span>
+                        <h3>International Committee Member</h3>
+                        <p>QCFI represents India in the 14-nation International Committee that organizes international conventions on Quality Concept Circle annually. We have organized four International conventions in India.</p>
+                    </div>
+                </div>
+                
+                <div class="international-card" data-aos="fade-left" data-aos-delay="200">
+                    <div class="international-image">
+                        <img src="../images/Stock/6.jpg" alt="Global Quality Partnerships">
+                    </div>
+                    <div class="international-content">
+                        <span class="international-badge">Group B</span>
+                        <h3>Global Partnerships</h3>
+                        <p>Collaborating with quality organizations across Asia including China, Japan, Korea, Philippines, Taiwan, Bangladesh, Indonesia, Malaysia, Mauritius, Singapore, Sri Lanka, and Thailand.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="fade-right" data-aos-delay="100">
+                    <h3>40+</h3>
+                    <p>Years of Excellence</p>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <h3>14</h3>
+                    <p>International Partner Nations</p>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <h3>500+</h3>
+                    <p>Corporate Partners</p>
+                </div>
+                <div class="stat-item" data-aos="fade-left" data-aos-delay="400">
+                    <h3>30+</h3>
+                    <p>Industry Verticals Served</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta about-cta" id="cta">
+        <div class="container">
+            <h2 data-aos="fade-down">Join Karnataka's Quality Movement</h2>
+            <p data-aos="fade-up" data-aos-delay="200">Become a member of QCFI Bengaluru Chapter and be part of the growing community dedicated to quality excellence and continuous improvement across Karnataka's industries.</p>
+            <a href="https://qcfi.in/qcfihq/" target="_blank" class="btn-primary" data-aos="fade-up" data-aos-delay="400">Become a Member Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col" data-aos="fade-right">
+                    <h3>QCFI Bengaluru</h3>
+                    <p>The Quality Circle Forum of India, Bengaluru Chapter is dedicated to promoting Quality Circle concepts and facilitating their implementation across industries in Karnataka region since 1982.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Visit our LinkedIn page"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Visit our Twitter page"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Visit our Facebook page"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Visit our YouTube channel"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col" data-aos="fade-up">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="vision-mission.html">Vision & Mission</a></li>
+                        <li><a href="../events.html">Events</a></li>
+                        <li><a href="../gallery.html">Gallery</a></li>
+                        <li><a href="../membership/index.html">Membership</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col" data-aos="fade-up">
+                    <h3>Programs</h3>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#training">Quality Training</a></li>
+                        <li><a href="../index.html#workshops">Corporate Workshops</a></li>
+                        <li><a href="../index.html#conventions">Quality Conventions</a></li>
+                        <li><a href="../index.html#certification">Certification</a></li>
+                        <li><a href="../index.html#collaboration">Industry Collaboration</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col" data-aos="fade-left">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Bengaluru, Karnataka, India</li>
+                        <li><i class="fas fa-phone"></i> 080 26768289</li>
+                        <li><i class="fas fa-envelope"></i> info@qcfibengaluru.org</li>
+                        <li><i class="fas fa-clock"></i> Mon - Fri: 9:00 - 17:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright" data-aos="fade-up">
+                <p>&copy; 2023 QCFI Bengaluru Chapter. All Rights Reserved. | Website Developed by <a href="https://www.folkdrive.in">Folkdrive India Private Limited</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script src="../js/script.js"></script>
+    <!-- About Page Specific JavaScript -->
+    <script src="../js/about.js"></script>
+</body>
+</html>
