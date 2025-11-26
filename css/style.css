@@ -569,6 +569,107 @@ body {
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
 }
 
+/* Enhanced Mobile Logo Styles */
+@media (max-width: 768px) {
+    .header {
+        padding: 0 15px;
+        height: 70px;
+    }
+    
+    .logo {
+        gap: 8px;
+        padding: 6px 10px 6px 8px;
+        max-width: 70%;
+    }
+    
+    .logo img {
+        height: 40px;
+        min-width: 40px;
+    }
+    
+    .logo-text {
+        font-size: 16px;
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 150px;
+        letter-spacing: 0.3px;
+    }
+    
+    .header-right {
+        gap: 12px;
+    }
+    
+    .right-menu-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 12px;
+    }
+    
+    .mobile-menu-btn {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+}
+
+/* For very small mobile devices */
+@media (max-width: 480px) {
+    .header {
+        padding: 0 12px;
+    }
+    
+    .logo {
+        gap: 6px;
+        padding: 5px 8px 5px 6px;
+        max-width: 65%;
+    }
+    
+    .logo img {
+        height: 35px;
+        min-width: 35px;
+    }
+    
+    .logo-text {
+        font-size: 14px;
+        max-width: 120px;
+        font-weight: 600;
+    }
+    
+    .header-right {
+        gap: 8px;
+    }
+    
+    .right-menu-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 11px;
+    }
+    
+    .mobile-menu-btn {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .logo-text {
+        font-size: 13px;
+        max-width: 100px;
+    }
+    
+    .logo img {
+        height: 32px;
+        min-width: 32px;
+    }
+    
+    .logo {
+        gap: 5px;
+        padding: 4px 6px 4px 5px;
+    }
+}
+
 /* Hide elements on specific screens */
 @media (max-width: 1023px) {
     .desktop-nav {
@@ -587,26 +688,6 @@ body {
     
     .mobile-nav {
         display: none;
-    }
-}
-
-@media (max-width: 768px) {
-    .header {
-        padding: 0 20px;
-    }
-    
-    .logo-text {
-        font-size: 18px;
-    }
-    
-    .logo img {
-        height: 50px;
-    }
-    
-    .right-menu-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 14px;
     }
 }
 
