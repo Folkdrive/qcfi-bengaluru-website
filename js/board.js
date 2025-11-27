@@ -1,25 +1,39 @@
-// Board Page Specific JavaScript
-// Clean version following About page pattern
-
+// Board Page Specific JavaScript - Optimized
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Board page JavaScript loaded successfully');
     
-    // Initialize AOS for Board page animations
+    // Initialize AOS with performance optimizations
     if (typeof AOS !== 'undefined') {
         AOS.init({
             duration: 800,
             once: true,
-            offset: 50,
-            easing: 'ease-out-cubic'
+            offset: 100,
+            easing: 'ease-out-cubic',
+            delay: 0,
+            throttleDelay: 99
         });
+    } else {
+        const script = document.createElement('script');
+        script.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js';
+        script.onload = function() {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100,
+                easing: 'ease-out-cubic',
+                delay: 0,
+                throttleDelay: 99
+            });
+        };
+        document.head.appendChild(script);
     }
 
-    // Enhanced board card interactions
+    // Optimized board card interactions
     const boardCards = document.querySelectorAll('.board-card, .council-card');
     
-    boardCards.forEach((card, index) => {
+    boardCards.forEach((card) => {
         card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-8px)';
+            this.style.transform = 'translateY(-10px)';
         });
         
         card.addEventListener('mouseleave', function() {
@@ -30,23 +44,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // Functionary card animations
     const functionaryCards = document.querySelectorAll('.functionary-card');
     
-    functionaryCards.forEach((card, index) => {
+    functionaryCards.forEach((card) => {
         card.addEventListener('mouseenter', function() {
             const icon = this.querySelector('.functionary-icon');
             if (icon) {
-                icon.style.transform = 'scale(1.1) rotate(5deg)';
+                icon.style.transform = 'scale(1.1)';
             }
         });
         
         card.addEventListener('mouseleave', function() {
             const icon = this.querySelector('.functionary-icon');
             if (icon) {
-                icon.style.transform = 'scale(1) rotate(0deg)';
+                icon.style.transform = 'scale(1)';
             }
         });
     });
 
-    // Smooth scrolling for internal links on Board page
+    // Smooth scrolling for internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
@@ -63,25 +77,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add scroll-based animations for member images
-    window.addEventListener('scroll', function() {
-        const memberImages = document.querySelectorAll('.member-image img, .council-image img');
-        const scrollPosition = window.scrollY;
-        
-        memberImages.forEach((img, index) => {
-            const imgPosition = img.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.3;
-            
-            if (imgPosition < screenPosition) {
-                img.style.transitionDelay = `${index * 0.1}s`;
-            }
-        });
-    });
-
     // Enhanced badge animations
     const memberBadges = document.querySelectorAll('.member-badge');
     
-    memberBadges.forEach((badge, index) => {
+    memberBadges.forEach((badge) => {
         badge.addEventListener('mouseenter', function() {
             this.style.transform = 'scale(1.1)';
         });
@@ -90,14 +89,6 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'scale(1)';
         });
     });
-});
-
-// Handle window resize for Board page specific adjustments
-window.addEventListener('resize', function() {
-    // Refresh AOS on resize
-    if (typeof AOS !== 'undefined') {
-        AOS.refresh();
-    }
 });
 
 // Add CSS for board specific animations
@@ -124,14 +115,21 @@ const boardStyles = `
     }
 `;
 
-// Inject Board page specific styles
-const styleSheet = document.createElement('style');
-styleSheet.textContent = boardStyles;
-document.head.appendChild(styleSheet);
-
-// Export functions if needed for other scripts
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        // Export functions if needed
-    };
+// Inject Board page specific styles only if not already added
+if (!document.querySelector('style[data-board-styles]')) {
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = boardStyles;
+    styleSheet.setAttribute('data-board-styles', 'true');
+    document.head.appendChild(styleSheet);
 }
+
+// Handle window resize with debouncing
+let resizeTimeout;
+window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function() {
+        if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+        }
+    }, 250);
+});

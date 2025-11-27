@@ -483,6 +483,35 @@ html, body {
     overflow-x: hidden;
 }
 
+/* ===== BOARD PAGE PERFORMANCE OPTIMIZATION ===== */
+/* Hardware acceleration for board page elements */
+.board-hero, .board-card, .functionary-card, 
+.council-card, .member-image, .council-image {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Reduce repaints */
+.board-grid, .functionaries-grid, .council-grid {
+    contain: layout style paint;
+}
+
+/* Optimize animations */
+.member-badge, .functionary-icon {
+    transform: translateZ(0);
+}
+
+/* Mobile header optimization for board page */
+@media (max-width: 1023px) {
+    .desktop-join-btn {
+        display: none !important;
+    }
+    
+    .header-right {
+        gap: 12px;
+    }
+}
+
 /* Desktop Styles */
 @media (min-width: 1024px) {
     .board-grid {

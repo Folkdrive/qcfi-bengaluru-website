@@ -31,6 +31,26 @@ body {
     --border-light: #e5e7eb;
     --glow-color: rgba(59, 130, 246, 0.5);
 }
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+/* Force hardware acceleration for better performance */
+.hero, .header, .mission-card, .program-card, 
+.event-card, .leader-card, .scroll-image,
+.partner-logo, .integrated-image, .gallery-item,
+.international-card, .stat-item {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Reduce repaints and improve scrolling */
+.mobile-nav, .right-quick-menu, .dropdown-menu {
+    contain: layout style paint;
+}
+
+/* Optimize animations */
+.scroll-image, .partner-logo, .mission-icon,
+.program-icon, .integrated-image {
+    transform: translateZ(0);
+}
 
 body {
     font-family: 'Inter', sans-serif;
@@ -1591,4 +1611,90 @@ footer {
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
+}
+/* ===== MOBILE HEADER OPTIMIZATION ===== */
+/* Hide Join button on mobile and optimize header spacing */
+@media (max-width: 1023px) {
+    .desktop-join-btn {
+        display: none !important;
+    }
+    
+    .header-right {
+        gap: 12px;
+    }
+    
+    .right-menu-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* For very small mobile devices */
+@media (max-width: 480px) {
+    .header-right {
+        gap: 8px;
+    }
+    
+    .right-menu-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+    /* ===== MOBILE HERO FIXES ===== */
+@media (max-width: 767px) {
+    .hero {
+        height: 70vh;
+        min-height: 400px;
+        padding: 80px 20px 40px;
+    }
+    
+    .hero-content {
+        padding: 0 15px;
+    }
+    
+    .hero h1 {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+        margin-bottom: 15px;
+    }
+    
+    .hero p {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+        margin-bottom: 25px;
+    }
+    
+    .hero-btns {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .hero-btns .btn-primary,
+    .hero-btns .btn-secondary {
+        width: 200px;
+    }
+}
+
+/* ===== MOBILE HEADER OPTIMIZATION ===== */
+@media (max-width: 1023px) {
+    .desktop-join-btn {
+        display: none !important;
+    }
+    
+    .header-right {
+        gap: 12px;
+    }
+}
+
+/* For very small mobile devices */
+@media (max-width: 480px) {
+    .header-right {
+        gap: 8px;
+    }
+    
+    .right-menu-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+}
 }

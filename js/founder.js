@@ -1,33 +1,33 @@
-// Founder Page Specific JavaScript
-// Clean version without conflicts
-
+// Founder Page Specific JavaScript - Optimized
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Founder page JavaScript loaded successfully');
     
-    // Initialize AOS for Founder page animations
+    // Initialize AOS with performance optimizations
     if (typeof AOS !== 'undefined') {
         AOS.init({
             duration: 800,
             once: true,
-            offset: 50,
-            easing: 'ease-out-cubic'
+            offset: 100,
+            easing: 'ease-out-cubic',
+            delay: 0,
+            throttleDelay: 99
         });
     }
 
-    // Enhanced founder card interactions
-    const founderCards = document.querySelectorAll('.founder-card');
+    // Founder card interactions
+    const founderCards = document.querySelectorAll('.founder-card, .achievement-card');
     
-    founderCards.forEach((card, index) => {
+    founderCards.forEach((card) => {
         card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-8px) scale(1.02)';
+            this.style.transform = 'translateY(-8px)';
         });
         
         card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
+            this.style.transform = 'translateY(0)';
         });
     });
 
-    // Smooth scrolling for internal links on Founder page
+    // Smooth scrolling for internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
@@ -44,51 +44,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add scroll-based animations for founder icons
-    window.addEventListener('scroll', function() {
-        const founderIcons = document.querySelectorAll('.founder-icon');
-        const scrollPosition = window.scrollY;
+    // Timeline animations
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    timelineItems.forEach((item) => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.02)';
+        });
         
-        founderIcons.forEach((icon, index) => {
-            const iconPosition = icon.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.3;
-            
-            if (iconPosition < screenPosition) {
-                icon.style.animationDelay = `${index * 0.1}s`;
-                icon.classList.add('animate-float');
-            }
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
         });
     });
 });
 
-// Handle window resize for Founder page specific adjustments
+// Handle window resize with debouncing
+let resizeTimeout;
 window.addEventListener('resize', function() {
-    // Refresh AOS on resize
-    if (typeof AOS !== 'undefined') {
-        AOS.refresh();
-    }
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function() {
+        if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+        }
+    }, 250);
 });
-
-// Add CSS for founder icon animations
-const founderStyles = `
-    @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-8px); }
-    }
-    
-    .founder-icon.animate-float {
-        animation: float 3s ease-in-out infinite;
-    }
-`;
-
-// Inject Founder page specific styles
-const styleSheet = document.createElement('style');
-styleSheet.textContent = founderStyles;
-document.head.appendChild(styleSheet);
-
-// Export functions if needed for other scripts
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        // Export functions if needed
-    };
-}

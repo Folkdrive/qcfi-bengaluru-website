@@ -14,6 +14,7 @@
     overflow-x: hidden;
     position: relative;
 }
+
 .about-hero .hero-content h1 {
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -57,22 +58,60 @@
     color: var(--primary-blue);
 }
 
-/* Mobile optimization for hero */
+/* Mobile optimization for hero - FIXED */
 @media (max-width: 768px) {
     .about-hero {
-        height: 60vh;
-        min-height: 400px;
-        padding: 80px 20px 40px;
+        height: auto; /* Changed from 60vh to auto */
+        min-height: 400px; /* Keep this for minimum height */
+        padding: 100px 20px 60px; /* Increased padding for more space */
+    }
+    
+    .about-hero .hero-content h1 {
+        margin-bottom: 20px; /* Add space below heading */
+        line-height: 1.3; /* Better line height for mobile */
+    }
+    
+    .about-hero .hero-content p {
+        margin-bottom: 25px; /* More space below paragraph */
+        line-height: 1.5; /* Better readability */
+        font-size: 1rem; /* Slightly smaller but readable */
     }
     
     .about-hero .hero-btns {
         flex-direction: column;
         align-items: center;
+        gap: 15px; /* More space between buttons */
+        margin-top: 20px; /* Space above buttons */
     }
     
     .about-hero .hero-btns .btn-primary,
     .about-hero .hero-btns .btn-secondary {
-        width: 200px;
+        width: 220px; /* Slightly wider for better touch */
+        padding: 14px 25px; /* Better touch target */
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .about-hero {
+        min-height: 450px; /* More height for very small screens */
+        padding: 90px 15px 50px; /* Adjusted padding */
+    }
+    
+    .about-hero .hero-content h1 {
+        font-size: 1.8rem; /* Slightly smaller heading */
+        margin-bottom: 15px;
+    }
+    
+    .about-hero .hero-content p {
+        font-size: 0.95rem; /* Adjusted font size */
+        margin-bottom: 20px;
+    }
+    
+    .about-hero .hero-btns .btn-primary,
+    .about-hero .hero-btns .btn-secondary {
+        width: 100%; /* Full width on very small screens */
+        max-width: 280px; /* But not too wide */
     }
 }
 
@@ -423,6 +462,73 @@ html, body {
     overflow-x: hidden;
 }
 
+/* ===== ABOUT PAGE PERFORMANCE OPTIMIZATION ===== */
+/* Hardware acceleration for about page elements */
+.about-hero, .mission-card, .international-card,
+.stat-item, .integrated-image, .gallery-item {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform; /* Prepare browser for animations */
+}
+
+/* Reduce repaints and improve scrolling */
+.content-with-image, .image-gallery, .mission-grid,
+.international-grid, .stats-grid {
+    contain: layout style paint;
+}
+
+/* Optimize images for mobile */
+.integrated-image img,
+.gallery-item img,
+.international-image img {
+    background: #f8fafc; /* Placeholder color while loading */
+    transition: transform 0.5s ease;
+}
+
+/* Lazy loading support */
+.integrated-image img.lazy,
+.gallery-item img.lazy,
+.international-image img.lazy {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.integrated-image img.loaded,
+.gallery-item img.loaded,
+.international-image img.loaded {
+    opacity: 1;
+}
+
+/* Touch optimization for mobile */
+@media (max-width: 768px) {
+    .mission-card,
+    .international-card,
+    .gallery-item {
+        transition: transform 0.2s ease; /* Faster transitions on mobile */
+    }
+    
+    .mission-card:active,
+    .international-card:active,
+    .gallery-item:active {
+        transform: scale(0.98); /* Touch feedback */
+    }
+}
+
+/* Performance: Reduce animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .about-hero, .mission-card, .international-card,
+    .stat-item, .integrated-image, .gallery-item {
+        transition: none;
+        transform: none;
+    }
+    
+    .integrated-image img,
+    .gallery-item img,
+    .international-image img {
+        transition: none;
+    }
+}
+
 /* Desktop Styles */
 @media (min-width: 1024px) {
     .content-with-image {
@@ -477,8 +583,8 @@ html, body {
 /* Mobile Optimization */
 @media (max-width: 767px) {
     .about-hero {
-        height: 40vh;
-        min-height: 300px;
+        height: auto; /* Ensure auto height for all mobile */
+        min-height: 400px;
         padding: 80px 20px 40px;
     }
 

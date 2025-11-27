@@ -58,22 +58,60 @@
     color: var(--primary-blue);
 }
 
-/* Mobile optimization for hero */
+/* Mobile optimization for hero - FIXED */
 @media (max-width: 768px) {
     .founder-hero {
-        height: 60vh;
-        min-height: 400px;
-        padding: 80px 20px 40px;
+        height: auto; /* Changed from 60vh to auto */
+        min-height: 400px; /* Keep this for minimum height */
+        padding: 100px 20px 60px; /* Increased padding for more space */
+    }
+    
+    .founder-hero .hero-content h1 {
+        margin-bottom: 20px; /* Add space below heading */
+        line-height: 1.3; /* Better line height for mobile */
+    }
+    
+    .founder-hero .hero-content p {
+        margin-bottom: 25px; /* More space below paragraph */
+        line-height: 1.5; /* Better readability */
+        font-size: 1rem; /* Slightly smaller but readable */
     }
     
     .founder-hero .hero-btns {
         flex-direction: column;
         align-items: center;
+        gap: 15px; /* More space between buttons */
+        margin-top: 20px; /* Space above buttons */
     }
     
     .founder-hero .hero-btns .btn-primary,
     .founder-hero .hero-btns .btn-secondary {
-        width: 200px;
+        width: 220px; /* Slightly wider for better touch */
+        padding: 14px 25px; /* Better touch target */
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .founder-hero {
+        min-height: 450px; /* More height for very small screens */
+        padding: 90px 15px 50px; /* Adjusted padding */
+    }
+    
+    .founder-hero .hero-content h1 {
+        font-size: 1.8rem; /* Slightly smaller heading */
+        margin-bottom: 15px;
+    }
+    
+    .founder-hero .hero-content p {
+        font-size: 0.95rem; /* Adjusted font size */
+        margin-bottom: 20px;
+    }
+    
+    .founder-hero .hero-btns .btn-primary,
+    .founder-hero .hero-btns .btn-secondary {
+        width: 100%; /* Full width on very small screens */
+        max-width: 280px; /* But not too wide */
     }
 }
 
@@ -345,6 +383,67 @@ html, body {
     overflow-x: hidden;
 }
 
+/* ===== FOUNDER PAGE PERFORMANCE OPTIMIZATION ===== */
+/* Hardware acceleration for founder page elements */
+.founder-hero, .founder-card, .legacy-card,
+.integrated-image {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform; /* Prepare browser for animations */
+}
+
+/* Reduce repaints and improve scrolling */
+.content-with-image, .founders-grid, .legacy-grid {
+    contain: layout style paint;
+}
+
+/* Optimize images for mobile */
+.integrated-image img {
+    background: #f8fafc; /* Placeholder color while loading */
+    transition: transform 0.5s ease;
+}
+
+/* Lazy loading support */
+.integrated-image img.lazy {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.integrated-image img.loaded {
+    opacity: 1;
+}
+
+/* Touch optimization for mobile */
+@media (max-width: 768px) {
+    .founder-card,
+    .legacy-card {
+        transition: transform 0.2s ease; /* Faster transitions on mobile */
+    }
+    
+    .founder-card:active,
+    .legacy-card:active {
+        transform: scale(0.98); /* Touch feedback */
+    }
+}
+
+/* Performance: Reduce animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .founder-hero, .founder-card, .legacy-card,
+    .integrated-image {
+        transition: none;
+        transform: none;
+    }
+    
+    .integrated-image img {
+        transition: none;
+    }
+    
+    .founder-card:hover .founder-icon,
+    .legacy-card:hover .legacy-icon {
+        transform: none;
+    }
+}
+
 /* Desktop Styles */
 @media (min-width: 1024px) {
     .content-with-image {
@@ -385,8 +484,8 @@ html, body {
 /* Mobile Optimization */
 @media (max-width: 767px) {
     .founder-hero {
-        height: 40vh;
-        min-height: 300px;
+        height: auto; /* Ensure auto height for all mobile */
+        min-height: 400px;
         padding: 80px 20px 40px;
     }
 

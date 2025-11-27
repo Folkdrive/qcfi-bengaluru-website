@@ -6,6 +6,13 @@
     <title>AGM Gallery | QCFI Bengaluru Chapter | Annual General Meeting Photos</title>
     <meta name="description" content="Annual General Meeting 2025 gallery - Photos from QCFI Bengaluru Chapter's AGM event showcasing quality initiatives and member interactions.">
     
+    <!-- Performance Optimizations -->
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="preload" href="../css/gallery.css" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     
@@ -17,11 +24,9 @@
     
     <!-- Main CSS -->
     <link rel="stylesheet" href="../css/style.css">
-    
-    <!-- Gallery CSS -->
     <link rel="stylesheet" href="../css/gallery.css">
 </head>
-<body>
+<body data-gallery-type="agm">
     <!-- Creative Header with Blue Gradient -->
     <header class="header" role="banner">
         <a href="../index.html" class="logo">
@@ -240,7 +245,6 @@
 
             <div class="gallery-grid" id="agmGallery">
                 <!-- Images will be loaded dynamically by JavaScript -->
-                <!-- This structure supports 5 images now and can scale to 90+ -->
             </div>
 
             <div class="gallery-load-more" data-aos="fade-up">
@@ -262,7 +266,7 @@
             <div class="gallery-links-grid">
                 <a href="environmental-day.html" class="gallery-link-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="link-image">
-                        <img src="../images/Environmental day/WhatsApp Image 2025-11-22 at 10.10.42 AM.jpeg" alt="Environmental Day">
+                        <img src="../images/Environmental day/WhatsApp Image 2025-11-22 at 10.10.42 AM.jpeg" alt="Environmental Day" loading="lazy">
                     </div>
                     <div class="link-content">
                         <h3>Environmental Day</h3>
@@ -272,7 +276,7 @@
 
                 <a href="ncqc24.html" class="gallery-link-card" data-aos="fade-up" data-aos-delay="250">
                     <div class="link-image">
-                        <img src="../images/NCQC24/WhatsApp Image 2025-11-22 at 10.10.52 AM.jpeg" alt="NCQC24">
+                        <img src="../images/NCQC24/WhatsApp Image 2025-11-22 at 10.10.52 AM.jpeg" alt="NCQC24" loading="lazy">
                     </div>
                     <div class="link-content">
                         <h3>NCQC24</h3>
@@ -282,7 +286,7 @@
 
                 <a href="sustainability-meet.html" class="gallery-link-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="link-image">
-                        <img src="../images/Sustainability meet/WhatsApp Image 2025-11-22 at 10.10.55 AM.jpeg" alt="Sustainability Meet">
+                        <img src="../images/Sustainability meet/WhatsApp Image 2025-11-22 at 10.10.55 AM.jpeg" alt="Sustainability Meet" loading="lazy">
                     </div>
                     <div class="link-content">
                         <h3>Sustainability Meet</h3>

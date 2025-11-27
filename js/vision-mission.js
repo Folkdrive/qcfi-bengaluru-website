@@ -1,34 +1,53 @@
-// js/vision-mission.js
-// Vision & Mission Page Specific JavaScript
-
+// Vision Mission Page Specific JavaScript - Optimized
 document.addEventListener('DOMContentLoaded', function() {
-    // Add scroll animations for vision-mission page elements
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
+    console.log('Vision Mission page JavaScript loaded successfully');
+    
+    // Initialize AOS with performance optimizations
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+            easing: 'ease-out-cubic',
+            delay: 0,
+            throttleDelay: 99
         });
-    }, observerOptions);
+    }
 
-    // Observe all cards for animation
-    const cards = document.querySelectorAll('.vm-card, .objective-card, .gallery-item');
-    cards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'all 0.6s ease';
-        observer.observe(card);
+    // Vision mission card interactions
+    const vmCards = document.querySelectorAll('.vm-card, .value-card');
+    
+    vmCards.forEach((card) => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
     });
 
-    // Add hover effects for vision-mission icons
-    const vmIcons = document.querySelectorAll('.vm-icon');
-    vmIcons.forEach(icon => {
+    // Smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId !== '#' && targetId !== '#cta') {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+
+    // Value icon animations
+    const valueIcons = document.querySelectorAll('.value-icon');
+    
+    valueIcons.forEach((icon) => {
         icon.addEventListener('mouseenter', function() {
             this.style.transform = 'scale(1.1) rotate(5deg)';
         });
@@ -37,23 +56,15 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'scale(1) rotate(0deg)';
         });
     });
+});
 
-    // Enhanced click handling for objective cards
-    const objectiveCards = document.querySelectorAll('.objective-card');
-    objectiveCards.forEach(card => {
-        card.addEventListener('click', function() {
-            this.classList.toggle('active');
-        });
-    });
-
-    // Image error handling
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-        img.addEventListener('error', function() {
-            console.log('Image failed to load:', this.src);
-            this.style.display = 'none';
-        });
-    });
-
-    console.log('Vision & Mission page JavaScript loaded successfully');
+// Handle window resize with debouncing
+let resizeTimeout;
+window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function() {
+        if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+        }
+    }, 250);
 });

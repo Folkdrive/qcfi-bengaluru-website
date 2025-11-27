@@ -6,6 +6,13 @@
     <title>July Meet Gallery | QCFI Bengaluru Chapter | Quality Circle Meetings</title>
     <meta name="description" content="July Meet 2025 gallery - Photos from QCFI Bengaluru Chapter's monthly quality circle meeting, discussions, and collaborative sessions.">
     
+    <!-- Performance Optimizations -->
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="preload" href="../css/gallery.css" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     
@@ -17,11 +24,9 @@
     
     <!-- Main CSS -->
     <link rel="stylesheet" href="../css/style.css">
-    
-    <!-- Gallery CSS -->
     <link rel="stylesheet" href="../css/gallery.css">
 </head>
-<body>
+<body data-gallery-type="july-meet">
     <!-- Creative Header with Blue Gradient -->
     <header class="header" role="banner">
         <a href="../index.html" class="logo">
@@ -238,7 +243,7 @@
                 <p data-aos="fade-up" data-aos-delay="100">Browse through the collaborative sessions and discussions</p>
             </div>
 
-            <div class="gallery-grid" id="julyMeetGallery">
+            <div class="gallery-grid" id="agmGallery">
                 <!-- Images will be loaded dynamically by JavaScript -->
             </div>
 
@@ -261,7 +266,7 @@
             <div class="gallery-links-grid">
                 <a href="ncqc24.html" class="gallery-link-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="link-image">
-                        <img src="../images/NCQC24/WhatsApp Image 2025-11-22 at 10.10.52 AM.jpeg" alt="NCQC24">
+                        <img src="../images/NCQC24/WhatsApp Image 2025-11-22 at 10.10.52 AM.jpeg" alt="NCQC24" loading="lazy">
                     </div>
                     <div class="link-content">
                         <h3>NCQC24</h3>
@@ -271,7 +276,7 @@
 
                 <a href="agm.html" class="gallery-link-card" data-aos="fade-up" data-aos-delay="250">
                     <div class="link-image">
-                        <img src="../images/AGM/WhatsApp Image 2025-11-22 at 10.11.19 AM (1).jpeg" alt="AGM">
+                        <img src="../images/AGM/WhatsApp Image 2025-11-22 at 10.11.19 AM (1).jpeg" alt="AGM" loading="lazy">
                     </div>
                     <div class="link-content">
                         <h3>Annual General Meeting</h3>
@@ -281,7 +286,7 @@
 
                 <a href="kaizen-competition.html" class="gallery-link-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="link-image">
-                        <img src="../images/Kaizen competition 2025 at Ace Designers Ltd, Machining Components Division.jpeg" alt="Kaizen Competition">
+                        <img src="../images/Kaizen competition 2025 at Ace Designers Ltd, Machining Components Division.jpeg" alt="Kaizen Competition" loading="lazy">
                     </div>
                     <div class="link-content">
                         <h3>Kaizen Competition</h3>

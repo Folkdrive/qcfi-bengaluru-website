@@ -1,4 +1,4 @@
-// js/script.js
+// js/script.js - Optimized Version
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileNav = document.getElementById('mobileNav');
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Dynamic Image Loading for Gallery
+    // Optimized Image Loading for Gallery with Lazy Loading
     function loadRandomImages() {
         if (!imageScrollTrack) return;
         
@@ -155,11 +155,11 @@ document.addEventListener('DOMContentLoaded', function() {
             { folder: 'images/AGM/', file: 'WhatsApp Image 2025-11-22 at 10.11.55 AM (1).jpeg' },
             
             // Environmental day Folder
-            { folder: 'images/Envernametal day/', file: 'WhatsApp Image 2025-11-22 at 10.10.42 AM.jpeg' },
-            { folder: 'images/Envernametal day/', file: 'WhatsApp Image 2025-11-22 at 10.10.43 AM (1).jpeg' },
-            { folder: 'images/Envernametal day/', file: 'WhatsApp Image 2025-11-22 at 10.10.46 AM (2).jpeg' },
-            { folder: 'images/Envernametal day/', file: 'WhatsApp Image 2025-11-22 at 10.10.50 AM.jpeg' },
-            { folder: 'images/Envernametal day/', file: 'WhatsApp Image 2025-11-22 at 10.10.52 AM.jpeg' },
+            { folder: 'images/Environmental day/', file: 'WhatsApp Image 2025-11-22 at 10.10.42 AM.jpeg' },
+            { folder: 'images/Environmental day/', file: 'WhatsApp Image 2025-11-22 at 10.10.43 AM (1).jpeg' },
+            { folder: 'images/Environmental day/', file: 'WhatsApp Image 2025-11-22 at 10.10.46 AM (2).jpeg' },
+            { folder: 'images/Environmental day/', file: 'WhatsApp Image 2025-11-22 at 10.10.50 AM.jpeg' },
+            { folder: 'images/Environmental day/', file: 'WhatsApp Image 2025-11-22 at 10.10.52 AM.jpeg' },
             
             // July Meet Folder
             { folder: 'images/July Meet/', file: 'WhatsApp Image 2025-11-22 at 10.10.34 AM.jpeg' },
@@ -197,8 +197,8 @@ document.addEventListener('DOMContentLoaded', function() {
             [shuffledImages[i], shuffledImages[j]] = [shuffledImages[j], shuffledImages[i]];
         }
         
-        // Take first 10 images for the scroll (or all if less than 10)
-        const selectedImages = shuffledImages.slice(0, Math.min(10, shuffledImages.length));
+        // Take first 8 images for performance (reduced from 10)
+        const selectedImages = shuffledImages.slice(0, Math.min(8, shuffledImages.length));
 
         // Clear existing content
         imageScrollTrack.innerHTML = '';
@@ -210,7 +210,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (noImagesMessage) noImagesMessage.style.display = 'none';
 
-        // Create image elements
+        // Create Intersection Observer for lazy loading
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    imageObserver.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px',
+            threshold: 0.1
+        });
+
+        // Create image elements with lazy loading
         selectedImages.forEach((imageData, index) => {
             const imagePath = imageData.folder + imageData.file;
             
@@ -218,8 +233,12 @@ document.addEventListener('DOMContentLoaded', function() {
             imageDiv.className = 'scroll-image';
             
             const img = document.createElement('img');
-            img.src = imagePath;
+            img.dataset.src = imagePath; // Store real source in data attribute
+            img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PC9zdmc+'; // Light gray placeholder
             img.alt = `QCFI Event ${index + 1}`;
+            img.className = 'lazy';
+            img.loading = 'lazy'; // Native lazy loading
+            
             img.onerror = function() {
                 console.log('Failed to load image:', imagePath);
                 this.style.display = 'none';
@@ -227,35 +246,26 @@ document.addEventListener('DOMContentLoaded', function() {
             
             imageDiv.appendChild(img);
             imageScrollTrack.appendChild(imageDiv);
+            
+            // Observe image for lazy loading
+            imageObserver.observe(img);
         });
 
-        // Duplicate for seamless scrolling
+        // Duplicate for seamless scrolling (only if we have images)
         if (selectedImages.length > 0) {
-            const duplicateImages = selectedImages.map((imageData, index) => {
-                const imagePath = imageData.folder + imageData.file;
-                
-                const imageDiv = document.createElement('div');
-                imageDiv.className = 'scroll-image';
-                
-                const img = document.createElement('img');
-                img.src = imagePath;
-                img.alt = `QCFI Event ${index + selectedImages.length + 1}`;
-                img.onerror = function() {
-                    console.log('Failed to load image:', imagePath);
-                    this.style.display = 'none';
-                };
-                
-                imageDiv.appendChild(img);
-                return imageDiv;
-            });
-
-            duplicateImages.forEach(imageDiv => {
-                imageScrollTrack.appendChild(imageDiv);
+            const firstBatch = Array.from(imageScrollTrack.children);
+            firstBatch.forEach(imageDiv => {
+                const clone = imageDiv.cloneNode(true);
+                const img = clone.querySelector('img');
+                if (img && img.dataset.src) {
+                    imageObserver.observe(img);
+                }
+                imageScrollTrack.appendChild(clone);
             });
         }
     }
 
-    // Dynamic Partner Logos Loading
+    // Dynamic Partner Logos Loading with Performance Optimization
     function loadPartnerLogos() {
         if (!partnersTrack) return;
         
@@ -269,39 +279,17 @@ document.addEventListener('DOMContentLoaded', function() {
         // Clear existing content
         partnersTrack.innerHTML = '';
 
-        // Try to load partner logos dynamically
-        possibleLogoFiles.forEach((logoFile, index) => {
-            const logoPath = 'images/partnerlogo/' + logoFile;
-            
-            const logoDiv = document.createElement('div');
-            logoDiv.className = 'partner-logo';
-            
-            // Create image element with error handling
-            const img = document.createElement('img');
-            img.src = logoPath;
-            img.alt = `Partner ${index + 1}`;
-            img.onerror = function() {
-                // If image fails to load, remove the element
-                logoDiv.remove();
-                checkIfNoLogos();
-            };
-            img.onload = function() {
-                checkIfNoLogos();
-            };
-            
-            logoDiv.appendChild(img);
-            partnersTrack.appendChild(logoDiv);
-        });
+        let loadedLogos = 0;
+        const totalLogos = possibleLogoFiles.length;
 
         function checkIfNoLogos() {
-            // Check after a delay to allow images to load
-            setTimeout(() => {
-                if (partnersTrack.children.length === 0) {
-                    if (noPartnersMessage) noPartnersMessage.style.display = 'block';
-                } else {
-                    if (noPartnersMessage) noPartnersMessage.style.display = 'none';
-                    
-                    // Duplicate logos for seamless scrolling
+            if (loadedLogos === 0 && partnersTrack.children.length === 0) {
+                if (noPartnersMessage) noPartnersMessage.style.display = 'block';
+            } else {
+                if (noPartnersMessage) noPartnersMessage.style.display = 'none';
+                
+                // Duplicate logos for seamless scrolling only if we have actual logos
+                if (partnersTrack.children.length > 0) {
                     const existingLogos = Array.from(partnersTrack.children);
                     const duplicateLogos = existingLogos.map(logoDiv => {
                         return logoDiv.cloneNode(true);
@@ -311,34 +299,114 @@ document.addEventListener('DOMContentLoaded', function() {
                         partnersTrack.appendChild(logoDiv);
                     });
                 }
-            }, 1000);
-        }
-
-        // Initial check
-        checkIfNoLogos();
-    }
-
-    // Load dynamic content
-    loadRandomImages();
-    loadPartnerLogos();
-    
-    // Handle window resize
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768 && mobileNav) {
-            mobileNav.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-
-    // Header scroll effect
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('.header');
-        if (header) {
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
             }
         }
+
+        // Try to load partner logos dynamically with error handling
+        possibleLogoFiles.forEach((logoFile, index) => {
+            const logoPath = 'images/partnerlogo/' + logoFile;
+            
+            const logoDiv = document.createElement('div');
+            logoDiv.className = 'partner-logo';
+            
+            // Create image element with error handling
+            const img = new Image();
+            img.src = logoPath;
+            img.alt = `Partner ${index + 1}`;
+            img.loading = 'lazy';
+            
+            img.onerror = function() {
+                // If image fails to load, remove the element
+                logoDiv.remove();
+                loadedLogos++;
+                if (loadedLogos === totalLogos) {
+                    checkIfNoLogos();
+                }
+            };
+            
+            img.onload = function() {
+                loadedLogos++;
+                logoDiv.appendChild(img);
+                partnersTrack.appendChild(logoDiv);
+                
+                if (loadedLogos === totalLogos) {
+                    checkIfNoLogos();
+                }
+            };
+        });
+
+        // Fallback check in case no images load
+        setTimeout(checkIfNoLogos, 2000);
+    }
+
+    // Load dynamic content with performance optimization
+    function loadContent() {
+        // Use requestIdleCallback for non-critical tasks
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(() => {
+                loadRandomImages();
+                loadPartnerLogos();
+            });
+        } else {
+            // Fallback for browsers that don't support requestIdleCallback
+            setTimeout(() => {
+                loadRandomImages();
+                loadPartnerLogos();
+            }, 100);
+        }
+    }
+
+    // Initialize with performance optimization
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadContent);
+    } else {
+        // Fallback for older browsers
+        setTimeout(loadContent, 500);
+    }
+    
+    // Handle window resize with debouncing
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            if (window.innerWidth > 768 && mobileNav) {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }, 250);
     });
+
+    // Header scroll effect with performance optimization
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+        if (!scrollTimeout) {
+            scrollTimeout = setTimeout(function() {
+                scrollTimeout = null;
+                const header = document.querySelector('.header');
+                if (header) {
+                    if (window.scrollY > 100) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                }
+            }, 10);
+        }
+    });
+
+    // Performance optimization: Preload critical images
+    function preloadCriticalImages() {
+        const criticalImages = [
+            'images/logo.png',
+            'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+        ];
+        
+        criticalImages.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+    }
+
+    // Preload critical images after page load
+    window.addEventListener('load', preloadCriticalImages);
 });
