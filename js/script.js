@@ -13,6 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const rightQuickMenu = document.getElementById('rightQuickMenu');
     const closeQuickMenu = document.getElementById('closeQuickMenu');
 
+    // Video Modal Elements
+    const videoPlayBtn = document.getElementById('videoPlayBtn');
+    const videoModal = document.getElementById('videoModal');
+    const closeVideoModal = document.getElementById('closeVideoModal');
+    const journeyVideo = document.getElementById('journeyVideo');
+
     function toggleRightMenu() {
         rightQuickMenu.classList.toggle('active');
         document.body.style.overflow = rightQuickMenu.classList.contains('active') ? 'hidden' : '';
@@ -36,6 +42,52 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.key === 'Escape' && rightQuickMenu.classList.contains('active')) {
                 toggleRightMenu();
             }
+        });
+    }
+
+    // ===== VIDEO MODAL FUNCTIONALITY =====
+    function openVideoModal() {
+        if (!videoModal || !journeyVideo) return;
+        
+        videoModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Play video with error handling
+        journeyVideo.play().catch(error => {
+            console.log('Video play failed:', error);
+        });
+    }
+
+    function closeVideoModalFunc() {
+        if (!videoModal || !journeyVideo) return;
+        
+        videoModal.classList.remove('active');
+        document.body.style.overflow = '';
+        journeyVideo.pause();
+        journeyVideo.currentTime = 0;
+    }
+
+    if (videoPlayBtn && videoModal && closeVideoModal && journeyVideo) {
+        videoPlayBtn.addEventListener('click', openVideoModal);
+        closeVideoModal.addEventListener('click', closeVideoModalFunc);
+        
+        // Close modal when clicking outside video
+        videoModal.addEventListener('click', function(e) {
+            if (e.target === videoModal) {
+                closeVideoModalFunc();
+            }
+        });
+        
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+                closeVideoModalFunc();
+            }
+        });
+
+        // Handle video end
+        journeyVideo.addEventListener('ended', function() {
+            setTimeout(closeVideoModalFunc, 2000);
         });
     }
 

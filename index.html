@@ -210,8 +210,29 @@
                 <a href="https://qcfi.in/qcfihq/" target="_blank" class="btn-primary">Become a Member</a>
                 <a href="events.html" class="btn-secondary">Upcoming Events</a>
             </div>
+            
+            <!-- Journey Video Section - Perfectly Aligned -->
+            <div class="journey-video-section">
+                <span class="journey-text">Watch Our Journey</span>
+                <button class="video-play-btn" id="videoPlayBtn" aria-label="Play QCFI Journey Video">
+                    <i class="fas fa-play"></i>
+                </button>
+            </div>
         </div>
     </section>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <button class="close-video-modal" id="closeVideoModal" aria-label="Close video">
+                <i class="fas fa-times"></i>
+            </button>
+            <video id="journeyVideo" controls>
+                <source src="assets/videos/Sample.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
 
     <!-- Stats Section -->
     <section class="section stats">
