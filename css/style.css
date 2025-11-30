@@ -579,11 +579,11 @@ body {
     border: 2px solid rgba(255, 255, 255, 0.3);
     color: white;
     width: 100%;
-    padding: 12px 20px;
-    font-size: 14px;
-    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 12px;
     transition: all 0.3s ease;
-    min-height: 48px;
+    min-height: 54px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -642,6 +642,11 @@ body {
         align-items: center;
         justify-content: center;
     }
+    
+    /* FIX: Hide desktop join button on mobile */
+    .desktop-join-btn {
+        display: none !important;
+    }
 }
 
 /* For very small mobile devices */
@@ -685,6 +690,11 @@ body {
         min-height: 44px;
         min-width: 44px;
     }
+    
+    /* FIX: Ensure desktop join button is hidden on very small screens */
+    .desktop-join-btn {
+        display: none !important;
+    }
 }
 
 /* Extra small devices */
@@ -712,7 +722,7 @@ body {
     }
     
     .desktop-join-btn {
-        display: none;
+        display: none !important; /* FIX: Added !important to ensure it's hidden */
     }
 }
 
@@ -723,6 +733,11 @@ body {
     
     .mobile-nav {
         display: none;
+    }
+    
+    /* FIX: Show desktop join button only on desktop */
+    .desktop-join-btn {
+        display: inline-flex !important;
     }
 }
 
