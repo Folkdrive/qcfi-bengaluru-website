@@ -62,7 +62,8 @@ website contact form on " . date('Y-m-d H:i:s') . "
         http_response_code(200);
         echo "success";
     } else {
-        // Error response
+        // Error response - for debugging
+        error_log("Email sending failed for: $email");
         http_response_code(500);
         echo "error";
     }

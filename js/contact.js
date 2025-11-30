@@ -1,16 +1,14 @@
-// Contact Page Specific JavaScript - Optimized for PHP
+// Contact Page JavaScript - Optimized for PHP on GoDaddy
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Contact page JavaScript loaded successfully');
     
-    // Initialize AOS with performance optimizations
+    // Initialize AOS
     if (typeof AOS !== 'undefined') {
         AOS.init({
             duration: 800,
             once: true,
             offset: 100,
-            easing: 'ease-out-cubic',
-            delay: 0,
-            throttleDelay: 99
+            easing: 'ease-out-cubic'
         });
     }
 
@@ -31,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Get form data
                 const formData = new FormData(this);
                 
+                console.log('Sending form data to PHP...');
+                
                 // Send to PHP
                 const response = await fetch(this.action, {
                     method: 'POST',
@@ -38,16 +38,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 
                 const result = await response.text();
+                console.log('PHP Response:', result, 'Status:', response.status);
                 
                 if (response.ok && result === 'success') {
                     showMessage('✅ Message sent successfully! We\'ll get back to you soon.', 'success');
                     contactForm.reset();
                 } else {
-                    throw new Error('Failed to send message');
+                    throw new Error(`Server returned: ${result}`);
                 }
             } catch (error) {
                 console.error('Form submission error:', error);
-                showMessage('❌ Sorry, there was an error sending your message. Please try again or contact us directly.', 'error');
+                showMessage('❌ Sorry, there was an error sending your message. Please try again or contact us directly at info@qcfibengaluru.org', 'error');
             } finally {
                 // Reset button state
                 submitBtn.innerHTML = originalText;
@@ -68,8 +69,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const messageDiv = document.createElement('div');
         messageDiv.className = `form-message ${type}`;
         messageDiv.innerHTML = message;
-        
-        // Add CSS styles
         messageDiv.style.cssText = `
             padding: 15px 20px;
             margin: 20px 0;
@@ -77,12 +76,10 @@ document.addEventListener('DOMContentLoaded', function() {
             font-weight: 600;
             text-align: center;
             font-size: 16px;
-            transition: all 0.3s ease;
             ${type === 'success' 
-                ? 'background: linear-gradient(135deg, #d4edda, #c3e6cb); color: #155724; border: 2px solid #28a745;' 
-                : 'background: linear-gradient(135deg, #f8d7da, #f5c6cb); color: #721c24; border: 2px solid #dc3545;'
+                ? 'background: #d4edda; color: #155724; border: 1px solid #c3e6cb;' 
+                : 'background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;'
             }
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         `;
         
         // Insert message above the form
@@ -94,18 +91,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Auto remove after 5 seconds
         setTimeout(() => {
             if (messageDiv.parentNode) {
-                messageDiv.style.opacity = '0';
-                messageDiv.style.transform = 'translateY(-10px)';
-                setTimeout(() => {
-                    if (messageDiv.parentNode) {
-                        messageDiv.remove();
-                    }
-                }, 300);
+                messageDiv.remove();
             }
         }, 5000);
     }
 
-    // Smooth scrolling for internal links
+    // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
@@ -113,36 +104,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             }
         });
     });
-
-    // Contact info card interactions
-    const contactCards = document.querySelectorAll('.contact-card');
-    
-    contactCards.forEach((card) => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
-});
-
-// Handle window resize with debouncing
-let resizeTimeout;
-window.addEventListener('resize', function() {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(function() {
-        if (typeof AOS !== 'undefined') {
-            AOS.refresh();
-        }
-    }, 250);
 });
