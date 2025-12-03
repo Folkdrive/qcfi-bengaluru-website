@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QCFI Events | Quality Circle Forum of India | Bengaluru Chapter Events Calendar</title>
+    <meta name="description" content="QCFI Bengaluru Chapter Events - View upcoming quality conventions, workshops, training programs, and networking events for Karnataka's quality professionals.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.png" type="image/png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Performance Optimizations -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="css/events.css" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- AOS Library for Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Events Page Specific CSS -->
+    <link rel="stylesheet" href="css/events.css">
+    
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="QCFI Logo - Quality Circle Forum of India Bengaluru Chapter">
+            <div class="logo-text">QCFI Bengaluru Chapter</div>
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav" role="navigation">
+            <ul class="nav-links-desktop">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link has-submenu">Bangalore Chapter</a>
+                    <div class="dropdown-menu">
+                        <a href="BangaloreChapter/about.html" class="dropdown-item">About Us</a>
+                        <a href="BangaloreChapter/vision-mission.html" class="dropdown-item">Vision & Mission</a>
+                        <a href="BangaloreChapter/history.html" class="dropdown-item">History</a>
+                        <a href="BangaloreChapter/founder.html" class="dropdown-item">Founder</a>
+                        <a href="BangaloreChapter/board.html" class="dropdown-item">Board</a>
+                        <a href="BangaloreChapter/contact.html" class="dropdown-item">Contact</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="events.html" class="nav-link active">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link has-submenu">Membership</a>
+                    <div class="dropdown-menu">
+                        <a href="https://qcfi.in/qcfihq/" target="_blank" class="dropdown-item">Online Membership</a>
+                        <a href="membership/New-Membership-Application_QCFI-04-07-2022.pdf" download class="dropdown-item">Download Membership Form</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="gallery.html" class="nav-link has-submenu">Gallery</a>
+                    <div class="dropdown-menu">
+                        <a href="gallery/agm.html" class="dropdown-item">AGM</a>
+                        <a href="gallery/environmental-day.html" class="dropdown-item">Environmental Day</a>
+                        <a href="gallery/july-meet.html" class="dropdown-item">July Meet</a>
+                        <a href="gallery/ncqc24.html" class="dropdown-item">NCQC24</a>
+                        <a href="gallery/sustainability-meet.html" class="dropdown-item">Sustainability Meet</a>
+                        <a href="gallery/kaizen-competition.html" class="dropdown-item">Kaizen Competition 2025</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="header-right">
+            <a href="https://qcfi.in/qcfihq/" target="_blank" class="desktop-join-btn">Join Now</a>
+            <button class="right-menu-btn" id="rightMenuBtn" aria-label="Open quick menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+        <div class="nav-header">
+            <button class="close-nav" id="closeNav" aria-label="Close navigation menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="mobile-nav-links">
+            <li class="mobile-nav-item">
+                <a href="index.html" class="mobile-nav-link">Home</a>
+            </li>
+            <li class="mobile-nav-item has-submenu">
+                <a href="#" class="mobile-nav-link">
+                    <span>Bangalore Chapter</span>
+                    <i class="fas fa-chevron-down mobile-submenu-toggle"></i>
+                </a>
+                <ul class="mobile-submenu">
+                    <li class="mobile-submenu-item"><a href="BangaloreChapter/about.html" class="mobile-submenu-link">About Us</a></li>
+                    <li class="mobile-submenu-item"><a href="BangaloreChapter/vision-mission.html" class="mobile-submenu-link">Vision & Mission</a></li>
+                    <li class="mobile-submenu-item"><a href="BangaloreChapter/history.html" class="mobile-submenu-link">History</a></li>
+                    <li class="mobile-submenu-item"><a href="BangaloreChapter/founder.html" class="mobile-submenu-link">Founder</a></li>
+                    <li class="mobile-submenu-item"><a href="BangaloreChapter/board.html" class="mobile-submenu-link">Board</a></li>
+                    <li class="mobile-submenu-item"><a href="BangaloreChapter/contact.html" class="mobile-submenu-link">Contact</a></li>
+                </ul>
+            </li>
+            <li class="mobile-nav-item active">
+                <a href="events.html" class="mobile-nav-link">Events</a>
+            </li>
+            <li class="mobile-nav-item has-submenu">
+                <a href="#" class="mobile-nav-link">
+                    <span>Membership</span>
+                    <i class="fas fa-chevron-down mobile-submenu-toggle"></i>
+                </a>
+                <ul class="mobile-submenu">
+                    <li class="mobile-submenu-item"><a href="https://qcfi.in/qcfihq/" target="_blank" class="mobile-submenu-link">Online Membership</a></li>
+                    <li class="mobile-submenu-item"><a href="membership/New-Membership-Application_QCFI-04-07-2022.pdf" download class="mobile-submenu-link">Download Membership Form</a></li>
+                </ul>
+            </li>
+            <li class="mobile-nav-item has-submenu">
+                <a href="gallery.html" class="mobile-nav-link">
+                    <span>Gallery</span>
+                    <i class="fas fa-chevron-down mobile-submenu-toggle"></i>
+                </a>
+                <ul class="mobile-submenu">
+                    <li class="mobile-submenu-item"><a href="gallery/agm.html" class="mobile-submenu-link">AGM</a></li>
+                    <li class="mobile-submenu-item"><a href="gallery/environmental-day.html" class="mobile-submenu-link">Environmental Day</a></li>
+                    <li class="mobile-submenu-item"><a href="gallery/july-meet.html" class="mobile-submenu-link">July Meet</a></li>
+                    <li class="mobile-submenu-item"><a href="gallery/ncqc24.html" class="mobile-submenu-link">NCQC24</a></li>
+                    <li class="mobile-submenu-item"><a href="gallery/sustainability-meet.html" class="mobile-submenu-link">Sustainability Meet</a></li>
+                    <li class="mobile-submenu-item"><a href="gallery/kaizen-competition.html" class="mobile-submenu-link">Kaizen Competition 2025</a></li>
+                </ul>
+            </li>
+        </ul>
+        
+        <div class="mobile-nav-cta">
+            <a href="https://qcfi.in/qcfihq/" target="_blank" class="btn-primary">Join QCFI Today</a>
+        </div>
+    </nav>
+
+    <!-- Right Quick Menu -->
+    <div class="right-quick-menu" id="rightQuickMenu">
+        <div class="quick-menu-header">
+            <h3>Quick Links</h3>
+            <button class="close-quick-menu" id="closeQuickMenu" aria-label="Close quick menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="quick-menu-content">
+            <a href="#upcoming-events" class="quick-menu-item">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Upcoming Events</span>
+            </a>
+            <a href="#past-events" class="quick-menu-item">
+                <i class="fas fa-history"></i>
+                <span>Past Events</span>
+            </a>
+            <a href="BangaloreChapter/contact.html" class="quick-menu-item">
+                <i class="fas fa-question-circle"></i>
+                <span>Event Inquiries</span>
+            </a>
+            <a href="https://qcfi.in/qcfihq/" target="_blank" class="quick-menu-item">
+                <i class="fas fa-user-plus"></i>
+                <span>Join Membership</span>
+            </a>
+            <a href="#event-types" class="quick-menu-item">
+                <i class="fas fa-tags"></i>
+                <span>Event Types</span>
+            </a>
+            <a href="gallery.html" class="quick-menu-item">
+                <i class="fas fa-images"></i>
+                <span>Event Gallery</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero events-hero" role="banner">
+        <div class="hero-content">
+            <h1 data-aos="fade-down">QCFI Events & Conventions</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Discover upcoming quality conventions, workshops, training programs, and networking events for Karnataka's quality professionals. Join us in driving quality excellence across industries.</p>
+            <div class="hero-btns" data-aos="fade-up" data-aos-delay="400">
+                <a href="#upcoming-events" class="btn-primary">View Upcoming Events</a>
+                <a href="#past-events" class="btn-secondary">Explore Past Events</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Types Section -->
+    <section class="section event-types" id="event-types">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-aos="fade-down">Types of Quality Events</h2>
+                <p data-aos="fade-up" data-aos-delay="200">We organize diverse events to cater to all aspects of quality management and continuous improvement</p>
+            </div>
+            
+            <div class="event-types-grid">
+                <div class="event-type-card" data-aos="fade-right" data-aos-delay="100">
+                    <div class="event-type-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Training Programs</h3>
+                    <p>Certified quality training sessions to enhance skills across IT, manufacturing, and service industries with industry-recognized certification programs.</p>
+                </div>
+                
+                <div class="event-type-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="event-type-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Workshops</h3>
+                    <p>Interactive workshops focusing on practical implementation of quality circle concepts and continuous improvement methodologies.</p>
+                </div>
+                
+                <div class="event-type-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="event-type-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Conventions</h3>
+                    <p>Annual conventions bringing together Karnataka's quality professionals to share knowledge and best practices in quality management.</p>
+                </div>
+                
+                <div class="event-type-card" data-aos="fade-left" data-aos-delay="400">
+                    <div class="event-type-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Networking Events</h3>
+                    <p>Professional networking opportunities to connect with industry leaders and quality experts from across Karnataka.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section class="section upcoming-events" id="upcoming-events">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-aos="fade-down">Upcoming Quality Events</h2>
+                <p data-aos="fade-up" data-aos-delay="200">Join our upcoming quality events and conventions in Bengaluru</p>
+            </div>
+            
+            <!-- Loading State -->
+            <div id="loadingState" class="loading-state" data-aos="fade-up">
+                <div class="loading-spinner"></div>
+                <p>Loading upcoming events from calendar...</p>
+            </div>
+            
+            <!-- No Events State -->
+            <div id="noEventsState" class="no-events-state" style="display: none;" data-aos="fade-up">
+                <div class="no-events-icon">
+                    <i class="far fa-calendar-times"></i>
+                </div>
+                <h3>No Upcoming Events Scheduled</h3>
+                <p>Check back soon for our upcoming quality events and conventions. Meanwhile, explore our past events below.</p>
+                <a href="#past-events" class="btn-primary">View Past Events</a>
+            </div>
+            
+            <!-- Events Grid Container -->
+            <div class="events-grid-horizontal" id="eventsGrid">
+                <!-- Events will be dynamically loaded here -->
+            </div>
+            
+            <!-- Month Navigation -->
+            <div class="month-navigation" data-aos="fade-up">
+                <button class="month-nav-btn prev-month" id="prevMonthBtn" disabled>
+                    <i class="fas fa-chevron-left"></i> Previous Month
+                </button>
+                <div class="current-month" id="currentMonth">Loading...</div>
+                <button class="month-nav-btn next-month" id="nextMonthBtn">
+                    Next Month <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <!-- Calendar Link -->
+            <div class="calendar-link" data-aos="fade-up">
+                <a href="https://calendar.google.com/calendar/embed?src=b66f6b9842660158ac8aa0500e812926a4d138b995f9f04042e75585c463f61f%40group.calendar.google.com&ctz=Asia%2FKolkata" 
+                   target="_blank" class="btn-secondary">
+                   <i class="fas fa-external-link-alt"></i> View Full Calendar
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Past Events Section -->
+    <section class="section past-events-section" id="past-events">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-aos="fade-down">Recent Past Events</h2>
+                <p data-aos="fade-up" data-aos-delay="200">Explore our recently concluded quality events and conventions</p>
+            </div>
+            
+            <!-- Past Events Loading -->
+            <div id="pastEventsLoading" class="loading-state" data-aos="fade-up">
+                <div class="loading-spinner"></div>
+                <p>Loading past events...</p>
+            </div>
+            
+            <!-- No Past Events -->
+            <div id="noPastEvents" class="no-events-state" style="display: none;" data-aos="fade-up">
+                <div class="no-events-icon">
+                    <i class="fas fa-history"></i>
+                </div>
+                <h3>No Past Events Available</h3>
+                <p>Past events will appear here as they are completed. Check our upcoming events above.</p>
+            </div>
+            
+            <!-- Past Events Grid -->
+            <div class="past-events-grid" id="pastEventsGrid">
+                <!-- Past events will be dynamically loaded here -->
+            </div>
+            
+            <!-- View More Button -->
+            <div class="view-more-events" data-aos="fade-up">
+                <a href="gallery.html" class="btn-secondary">
+                    <i class="fas fa-images"></i> View Event Gallery & Photos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Registration CTA -->
+    <section class="section event-registration-cta">
+        <div class="container">
+            <div class="registration-cta-content" data-aos="fade-up">
+                <h2>Register for QCFI Events</h2>
+                <p>Join our quality events to enhance your skills, network with professionals, and stay updated with the latest quality management practices.</p>
+                <div class="cta-actions">
+                    <a href="BangaloreChapter/contact.html" class="btn-primary">
+                        <i class="fas fa-phone-alt"></i> Contact for Registration
+                    </a>
+                    <a href="mailto:info@qcfibengaluru.org?subject=Event Registration Inquiry" class="btn-secondary">
+                        <i class="fas fa-envelope"></i> Email for Details
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col" data-aos="fade-right">
+                    <h3>QCFI Bengaluru</h3>
+                    <p>The Quality Circle Forum of India, Bengaluru Chapter is dedicated to promoting Quality Circle concepts and facilitating their implementation across industries in Karnataka region since 1982.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Visit our LinkedIn page"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Visit our Twitter page"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Visit our Facebook page"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Visit our YouTube channel"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col" data-aos="fade-up">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="BangaloreChapter/about.html">About Us</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="BangaloreChapter/contact.html">Contact</a></li>
+                        <li><a href="BangaloreChapter/board.html">Board of Directors</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col" data-aos="fade-up">
+                    <h3>Event Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#event-types">Training Programs</a></li>
+                        <li><a href="#event-types">Workshops</a></li>
+                        <li><a href="#event-types">Conventions</a></li>
+                        <li><a href="#event-types">Networking Events</a></li>
+                        <li><a href="#upcoming-events">Upcoming Events</a></li>
+                        <li><a href="#past-events">Past Events</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col" data-aos="fade-left">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Bengaluru, Karnataka, India</li>
+                        <li><i class="fas fa-phone"></i> 080 26768289</li>
+                        <li><i class="fas fa-envelope"></i> info@qcfibengaluru.org</li>
+                        <li><i class="fas fa-clock"></i> Mon - Fri: 9:00 - 17:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright" data-aos="fade-up">
+                <p>&copy; 2023 QCFI Bengaluru Chapter. All Rights Reserved. | Website Developed by <a href="https://www.folkdrive.in">Folkdrive India Private Limited</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script src="js/script.js"></script>
+    <!-- Calendar Events Integration -->
+    <script src="js/calendar-events.js"></script>
+    <!-- Events Page Specific JavaScript -->
+    <script src="js/events.js"></script>
+</body>
+</html>

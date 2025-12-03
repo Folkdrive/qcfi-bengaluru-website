@@ -1,5 +1,5 @@
 /* Board Page Specific Styles - Following About Page Pattern */
-/* Board Hero with Background Image */
+/* Board Hero with Background Image - UPDATED PADDING */
 .board-hero {
     height: 70vh;
     min-height: 500px;
@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 100px 20px 60px;
+    padding: 120px 20px 60px; /* Increased top padding from 100px to 120px */
     overflow-x: hidden;
     position: relative;
 }
@@ -19,6 +19,7 @@
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 10px; /* Added margin */
 }
 
 .board-hero .hero-content p {
@@ -26,7 +27,8 @@
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     font-size: clamp(1rem, 2vw, 1.3rem);
     max-width: 600px;
-    margin: 0 auto 30px;
+    margin: 0 auto 10px;
+    line-height: 1.6; /* Added line height */
 }
 
 .board-hero .hero-btns {
@@ -34,6 +36,7 @@
     gap: 15px;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 20px; /* Added margin */
 }
 
 .board-hero .btn-primary {
@@ -95,7 +98,7 @@
     font-weight: 500;
 }
 
-/* Executive Board Section */
+/* Executive Board Section - UPDATED IMAGE POSITIONING */
 .executive-board {
     background: var(--bg-white);
     padding: 80px 0;
@@ -105,64 +108,65 @@
 .board-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 40px;
     overflow: hidden;
 }
 
+/* Clean board card design */
 .board-card {
     background: var(--bg-white);
-    border-radius: 15px;
-    overflow: hidden;
+    border-radius: 12px;
+    padding: 0;
     border: 1px solid var(--border-light);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-}
-
-.board-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    border-color: var(--primary-blue);
-}
-
-.member-image {
-    position: relative;
-    height: 250px;
+    align-items: center;
+    text-align: center;
     overflow: hidden;
 }
 
-.member-image img {
+.board-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary-blue);
+}
+
+/* Clean image container - UPDATED FOR BETTER HEAD POSITIONING */
+.member-image-container {
     width: 100%;
-    height: 100%;
+    padding: 30px 30px 20px;
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.member-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary-blue);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
+    background: white;
+    position: relative;
+}
+
+/* UPDATED: Better image positioning to avoid head cutting */
+.member-image img {
+    width: 110%; /* Slightly larger to ensure full head coverage */
+    height: 110%; /* Slightly larger to ensure full head coverage */
     object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.board-card:hover .member-image img {
-    transform: scale(1.08);
-}
-
-.member-badge {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-    color: white;
-    padding: 8px 20px;
-    border-radius: 25px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    object-position: center 20%; /* Adjusted to focus on face/head */
+    position: relative;
+    top: -5%; /* Shift up to show more head */
 }
 
 .member-info {
-    padding: 30px;
-    text-align: center;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 25px 30px 30px;
+    width: 100%;
 }
 
 .member-info h3 {
@@ -170,6 +174,7 @@
     margin-bottom: 8px;
     color: var(--text-dark);
     font-weight: 600;
+    line-height: 1.3;
 }
 
 .member-info .position {
@@ -177,6 +182,7 @@
     font-weight: 600;
     margin-bottom: 15px;
     font-size: 1rem;
+    display: block;
 }
 
 .member-info .description {
@@ -187,7 +193,7 @@
     margin: 0;
 }
 
-/* Functionaries Section */
+/* Functionaries Section - UPDATED IMAGE POSITIONING */
 .functionaries {
     background: var(--bg-light);
     padding: 80px 0;
@@ -197,60 +203,64 @@
 .functionaries-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 40px;
     overflow: hidden;
 }
 
+/* Clean functionary card */
 .functionary-card {
     background: var(--bg-white);
-    border-radius: 15px;
-    padding: 40px 30px;
-    text-align: center;
+    border-radius: 12px;
+    padding: 0;
     border: 1px solid var(--border-light);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     transition: all 0.3s ease;
-}
-
-.functionary-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
 }
 
 .functionary-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
     border-color: var(--primary-blue);
 }
 
-.functionary-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-    border-radius: 50%;
+.functionary-image-container {
+    width: 100%;
+    padding: 30px 30px 20px;
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: 0 auto 25px;
+    align-items: center;
+}
+
+.functionary-image {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary-blue);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
+    background: white;
     position: relative;
-    z-index: 1;
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
-    transition: all 0.3s ease;
 }
 
-.functionary-card:hover .functionary-icon {
-    transform: scale(1.1);
+/* UPDATED: Better image positioning to avoid head cutting */
+.functionary-image img {
+    width: 110%; /* Slightly larger to ensure full head coverage */
+    height: 110%; /* Slightly larger to ensure full head coverage */
+    object-fit: cover;
+    object-position: center 20%; /* Adjusted to focus on face/head */
+    position: relative;
+    top: -5%; /* Shift up to show more head */
 }
 
-.functionary-icon i {
-    font-size: 1.8rem;
-    color: white;
+.functionary-info {
+    padding: 25px 30px 30px;
+    width: 100%;
 }
 
 .functionary-info h3 {
@@ -258,24 +268,26 @@
     margin-bottom: 8px;
     color: var(--text-dark);
     font-weight: 600;
+    line-height: 1.3;
 }
 
 .functionary-info .position {
     color: var(--primary-blue);
     font-weight: 600;
     margin-bottom: 15px;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    display: block;
 }
 
 .functionary-info .description {
     color: var(--text-light);
     line-height: 1.7;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 500;
     margin: 0;
 }
 
-/* Governing Council Section */
+/* Governing Council Section - UPDATED IMAGE POSITIONING */
 .governing-council {
     background: var(--bg-white);
     padding: 80px 0;
@@ -285,21 +297,22 @@
 .council-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 25px;
+    gap: 30px;
     overflow: hidden;
 }
 
+/* Clean council card */
 .council-card {
     background: var(--bg-white);
-    border-radius: 15px;
+    border-radius: 12px;
     padding: 30px 25px;
-    text-align: center;
     border: 1px solid var(--border-light);
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 .council-card:hover {
@@ -309,31 +322,33 @@
 }
 
 .council-image {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 20px;
     border: 3px solid var(--primary-blue);
-    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
-    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
+    background: white;
+    position: relative;
 }
 
-.council-card:hover .council-image {
-    transform: scale(1.05);
-}
-
+/* UPDATED: Better image positioning to avoid head cutting */
 .council-image img {
-    width: 100%;
-    height: 100%;
+    width: 110%; /* Slightly larger to ensure full head coverage */
+    height: 110%; /* Slightly larger to ensure full head coverage */
     object-fit: cover;
+    object-position: center 20%; /* Adjusted to focus on face/head */
+    position: relative;
+    top: -5%; /* Shift up to show more head */
 }
 
 .council-info h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-bottom: 8px;
     color: var(--text-dark);
     font-weight: 600;
+    line-height: 1.3;
 }
 
 .council-info .position {
@@ -341,6 +356,7 @@
     font-weight: 600;
     margin-bottom: 12px;
     font-size: 0.9rem;
+    display: block;
 }
 
 .council-info .description {
@@ -486,7 +502,8 @@ html, body {
 /* ===== BOARD PAGE PERFORMANCE OPTIMIZATION ===== */
 /* Hardware acceleration for board page elements */
 .board-hero, .board-card, .functionary-card, 
-.council-card, .member-image, .council-image {
+.council-card, .member-image, .council-image,
+.functionary-image {
     transform: translateZ(0);
     backface-visibility: hidden;
 }
@@ -494,11 +511,6 @@ html, body {
 /* Reduce repaints */
 .board-grid, .functionaries-grid, .council-grid {
     contain: layout style paint;
-}
-
-/* Optimize animations */
-.member-badge, .functionary-icon {
-    transform: translateZ(0);
 }
 
 /* Mobile header optimization for board page */
@@ -552,37 +564,67 @@ html, body {
     }
 }
 
-/* Mobile Optimization */
+/* Mobile Optimization - UPDATED HERO PADDING */
 @media (max-width: 767px) {
     .board-hero {
         height: 60vh;
         min-height: 400px;
-        padding: 80px 20px 40px;
+        padding: 100px 20px 40px; /* Increased top padding for mobile */
     }
 
     .section-header h2 {
         font-size: 2rem;
     }
 
+    /* Executive Board Mobile */
     .member-image {
-        height: 200px;
+        width: 150px;
+        height: 150px;
+    }
+    
+    /* UPDATED: Mobile image positioning */
+    .member-image img {
+        width: 115%; /* Slightly larger on mobile */
+        height: 115%; /* Slightly larger on mobile */
+        object-position: center 25%; /* Adjusted for mobile */
     }
 
     .member-info {
-        padding: 20px;
+        padding: 20px 25px 25px;
     }
 
-    .functionary-card {
-        padding: 30px 20px;
+    /* Functionaries Mobile */
+    .functionary-image {
+        width: 140px;
+        height: 140px;
+    }
+    
+    /* UPDATED: Mobile image positioning */
+    .functionary-image img {
+        width: 115%; /* Slightly larger on mobile */
+        height: 115%; /* Slightly larger on mobile */
+        object-position: center 25%; /* Adjusted for mobile */
     }
 
+    .functionary-info {
+        padding: 20px 25px 25px;
+    }
+
+    /* Governing Council Mobile */
     .council-card {
         padding: 25px 20px;
     }
 
     .council-image {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
+    }
+    
+    /* UPDATED: Mobile image positioning */
+    .council-image img {
+        width: 115%; /* Slightly larger on mobile */
+        height: 115%; /* Slightly larger on mobile */
+        object-position: center 25%; /* Adjusted for mobile */
     }
 
     .mission-content h2 {
@@ -602,5 +644,28 @@ html, body {
     .cta-buttons .btn-primary,
     .cta-buttons .btn-secondary {
         width: 200px;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .board-hero {
+        padding: 90px 15px 30px; /* Even more top padding for very small screens */
+    }
+    
+    .board-hero .hero-content h1 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+    
+    .board-hero .hero-content p {
+        font-size: 0.95rem;
+        margin-bottom: 25px;
+    }
+    
+    .board-hero .hero-btns {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
 }
